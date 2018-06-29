@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  MobileVoterOutreachApplication
+//  SendMessage
 //
-//  Created by Dylan  Irlbeck on 6/26/18.
-//  Copyright © 2018 Dylan  Irlbeck. All rights reserved.
+//  Created by AK Alilonu on 6/29/18.
+//  Copyright © 2018 AK Alilonu. All rights reserved.
 //
 
 import UIKit
