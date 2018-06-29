@@ -26,8 +26,10 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate {
     }
     
     @IBAction func loadContactStuff(_ sender: Any) {
-          SwiftMultiSelect.Show(to: self)
-    }
+      let sms: String = "sms:+=12246882592&body=Hello Abc How are You I am ios developer."
+      let strURL: String = sms.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+      UIApplication.shared.open(URL.init(string: strURL)!, options: [:], completionHandler: nil)
+   }
     
     //MARK: - SwiftMultiSelectDelegate
     

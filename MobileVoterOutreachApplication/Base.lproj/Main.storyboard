@@ -130,9 +130,6 @@
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="loadContactStuff:" destination="1Yj-8M-9cc" eventType="touchUpInside" id="bJz-k2-AIv"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.23392206430435181" green="0.53150820732116699" blue="0.74512535333633423" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -141,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hry-uP-xlP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1348" y="-232"/>
+            <point key="canvasLocation" x="1348" y="-232.53373313343329"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="2kS-p2-mxR">
