@@ -22,12 +22,13 @@ class OpeningScreen: UIViewController, UITextFieldDelegate {
         Password.delegate = self
         UITextField.appearance().keyboardAppearance = .dark
         self.hideKeyboard()
-        
-        //makeBottomBorder(UserName)
-        //makeBottomBorder(Password)
+        makeBottomBorder(UserName)
+        makeBottomBorder(Password)
         
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+   
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -36,8 +37,8 @@ class OpeningScreen: UIViewController, UITextFieldDelegate {
     
     func makeBottomBorder(_ textField: UITextField) {
         let border = CALayer()
-        let width = CGFloat(2.0)
-        border.borderColor = UIColor.gray.cgColor
+        let width = CGFloat(1.0)
+        border.borderColor = UIColor.darkGray.cgColor
         border.frame = CGRect(x: 0, y: textField.frame.size.height - width, width: textField.frame.size.width, height: textField.frame.size.height)
         
         border.borderWidth = width

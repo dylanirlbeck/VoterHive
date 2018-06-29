@@ -16,6 +16,9 @@
 		7CC06F2620E57FE30006988A /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC06F2520E57FE30006988A /* RoundButton.swift */; };
 		7CC06F2820E581E20006988A /* HideKeyBoardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC06F2720E581E20006988A /* HideKeyBoardExtension.swift */; };
 		7CC06F2A20E58BE80006988A /* ButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC06F2920E58BE80006988A /* ButtonExtension.swift */; };
+		7CC06F2C20E682940006988A /* img_401900.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CC06F2B20E682940006988A /* img_401900.png */; };
+		7CC06F3220E6850D0006988A /* download-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CC06F3120E6850D0006988A /* download-1.png */; };
+		7CC06F3420E685320006988A /* Icons8-Ios7-User-Interface-Password-2.ico in Resources */ = {isa = PBXBuildFile; fileRef = 7CC06F3320E685320006988A /* Icons8-Ios7-User-Interface-Password-2.ico */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		7CC06F2520E57FE30006988A /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		7CC06F2720E581E20006988A /* HideKeyBoardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyBoardExtension.swift; sourceTree = "<group>"; };
 		7CC06F2920E58BE80006988A /* ButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtension.swift; sourceTree = "<group>"; };
+		7CC06F2B20E682940006988A /* img_401900.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = img_401900.png; path = ../../img_401900.png; sourceTree = "<group>"; };
+		7CC06F3120E6850D0006988A /* download-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "download-1.png"; path = "../../download-1.png"; sourceTree = "<group>"; };
+		7CC06F3320E685320006988A /* Icons8-Ios7-User-Interface-Password-2.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; name = "Icons8-Ios7-User-Interface-Password-2.ico"; path = "../../Icons8-Ios7-User-Interface-Password-2.ico"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +71,9 @@
 				7C41551020E296F1003E13C2 /* AppDelegate.swift */,
 				7CC06F2120E573170006988A /* OpeningScreen.swift */,
 				7C41551420E296F1003E13C2 /* Main.storyboard */,
+				7CC06F3120E6850D0006988A /* download-1.png */,
+				7CC06F3320E685320006988A /* Icons8-Ios7-User-Interface-Password-2.ico */,
+				7CC06F2B20E682940006988A /* img_401900.png */,
 				7C41551720E296F3003E13C2 /* Assets.xcassets */,
 				7C41551C20E296F3003E13C2 /* Info.plist */,
 				7CC06F1D20E2D6D00006988A /* PageViewController.swift */,
@@ -135,7 +144,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C41551820E296F3003E13C2 /* Assets.xcassets in Resources */,
+				7CC06F3420E685320006988A /* Icons8-Ios7-User-Interface-Password-2.ico in Resources */,
+				7CC06F2C20E682940006988A /* img_401900.png in Resources */,
 				7C41551620E296F1003E13C2 /* Main.storyboard in Resources */,
+				7CC06F3220E6850D0006988A /* download-1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
