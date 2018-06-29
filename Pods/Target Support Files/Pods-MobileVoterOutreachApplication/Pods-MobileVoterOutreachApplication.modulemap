@@ -1,0 +1,6 @@
+framework module Pods_MobileVoterOutreachApplication {
+  umbrella header "Pods-MobileVoterOutreachApplication-umbrella.h"
+
+  export *
+  module * { export * }
+}

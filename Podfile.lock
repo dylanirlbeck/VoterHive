@@ -1,0 +1,16 @@
+PODS:
+  - SwiftMultiSelect (0.2.4)
+
+DEPENDENCIES:
+  - SwiftMultiSelect
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SwiftMultiSelect
+
+SPEC CHECKSUMS:
+  SwiftMultiSelect: 50e4c628935492d30d3c45ab88901502c3eb52f4
+
+PODFILE CHECKSUM: 5dc92a4d035ab0f1386582c4d5977d5fa1f9b0d6
+
+COCOAPODS: 1.5.3

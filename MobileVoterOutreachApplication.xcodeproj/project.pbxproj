@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05DFEE673A22E6B45E50ABB3 /* Pods_MobileVoterOutreachApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64199BD19DD1D8F977D11035 /* Pods_MobileVoterOutreachApplication.framework */; };
 		7C41551120E296F1003E13C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C41551020E296F1003E13C2 /* AppDelegate.swift */; };
 		7C41551620E296F1003E13C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C41551420E296F1003E13C2 /* Main.storyboard */; };
 		7C41551820E296F3003E13C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C41551720E296F3003E13C2 /* Assets.xcassets */; };
@@ -19,9 +20,12 @@
 		7CC06F2C20E682940006988A /* img_401900.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CC06F2B20E682940006988A /* img_401900.png */; };
 		7CC06F3220E6850D0006988A /* download-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CC06F3120E6850D0006988A /* download-1.png */; };
 		7CC06F3420E685320006988A /* Icons8-Ios7-User-Interface-Password-2.ico in Resources */ = {isa = PBXBuildFile; fileRef = 7CC06F3320E685320006988A /* Icons8-Ios7-User-Interface-Password-2.ico */; };
+		7CC06F3620E68B450006988A /* SecondOpeningScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC06F3520E68B450006988A /* SecondOpeningScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19E0EF01D2BBC27905565308 /* Pods-MobileVoterOutreachApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileVoterOutreachApplication.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MobileVoterOutreachApplication/Pods-MobileVoterOutreachApplication.debug.xcconfig"; sourceTree = "<group>"; };
+		64199BD19DD1D8F977D11035 /* Pods_MobileVoterOutreachApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileVoterOutreachApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C41550D20E296F1003E13C2 /* MobileVoterOutreachApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileVoterOutreachApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C41551020E296F1003E13C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C41551520E296F1003E13C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -36,6 +40,8 @@
 		7CC06F2B20E682940006988A /* img_401900.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = img_401900.png; path = ../../img_401900.png; sourceTree = "<group>"; };
 		7CC06F3120E6850D0006988A /* download-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "download-1.png"; path = "../../download-1.png"; sourceTree = "<group>"; };
 		7CC06F3320E685320006988A /* Icons8-Ios7-User-Interface-Password-2.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; name = "Icons8-Ios7-User-Interface-Password-2.ico"; path = "../../Icons8-Ios7-User-Interface-Password-2.ico"; sourceTree = "<group>"; };
+		7CC06F3520E68B450006988A /* SecondOpeningScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOpeningScreen.swift; sourceTree = "<group>"; };
+		A987A49A57046AC4DF4DE506 /* Pods-MobileVoterOutreachApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileVoterOutreachApplication.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobileVoterOutreachApplication/Pods-MobileVoterOutreachApplication.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,17 +49,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05DFEE673A22E6B45E50ABB3 /* Pods_MobileVoterOutreachApplication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		467973E36D95DD4E56B03EB0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				64199BD19DD1D8F977D11035 /* Pods_MobileVoterOutreachApplication.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7C41550420E296F1003E13C2 = {
 			isa = PBXGroup;
 			children = (
 				7C41550F20E296F1003E13C2 /* MobileVoterOutreachApplication */,
 				7C41550E20E296F1003E13C2 /* Products */,
+				AA76BFB28F4AAE50A70E76A8 /* Pods */,
+				467973E36D95DD4E56B03EB0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,8 +98,18 @@
 				7CC06F2520E57FE30006988A /* RoundButton.swift */,
 				7CC06F2720E581E20006988A /* HideKeyBoardExtension.swift */,
 				7CC06F2920E58BE80006988A /* ButtonExtension.swift */,
+				7CC06F3520E68B450006988A /* SecondOpeningScreen.swift */,
 			);
 			path = MobileVoterOutreachApplication;
+			sourceTree = "<group>";
+		};
+		AA76BFB28F4AAE50A70E76A8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				19E0EF01D2BBC27905565308 /* Pods-MobileVoterOutreachApplication.debug.xcconfig */,
+				A987A49A57046AC4DF4DE506 /* Pods-MobileVoterOutreachApplication.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -92,9 +119,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7C41551F20E296F3003E13C2 /* Build configuration list for PBXNativeTarget "MobileVoterOutreachApplication" */;
 			buildPhases = (
+				5E7F6FEF226EBE73AEDB5530 /* [CP] Check Pods Manifest.lock */,
 				7C41550920E296F1003E13C2 /* Sources */,
 				7C41550A20E296F1003E13C2 /* Frameworks */,
 				7C41550B20E296F1003E13C2 /* Resources */,
+				DC2C486C12E359FB6433AF79 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -153,11 +182,51 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5E7F6FEF226EBE73AEDB5530 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MobileVoterOutreachApplication-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC2C486C12E359FB6433AF79 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MobileVoterOutreachApplication/Pods-MobileVoterOutreachApplication-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftMultiSelect/SwiftMultiSelect.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMultiSelect.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MobileVoterOutreachApplication/Pods-MobileVoterOutreachApplication-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7C41550920E296F1003E13C2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CC06F3620E68B450006988A /* SecondOpeningScreen.swift in Sources */,
 				7CC06F2A20E58BE80006988A /* ButtonExtension.swift in Sources */,
 				7CC06F2820E581E20006988A /* HideKeyBoardExtension.swift in Sources */,
 				7CC06F1E20E2D6D00006988A /* PageViewController.swift in Sources */,
@@ -298,6 +367,7 @@
 		};
 		7C41552020E296F3003E13C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19E0EF01D2BBC27905565308 /* Pods-MobileVoterOutreachApplication.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -315,6 +385,7 @@
 		};
 		7C41552120E296F3003E13C2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A987A49A57046AC4DF4DE506 /* Pods-MobileVoterOutreachApplication.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
