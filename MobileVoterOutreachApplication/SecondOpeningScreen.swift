@@ -19,7 +19,6 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MainScreenTableViewCell
         cell.nameField.text = "Dylan"
-        cell.currentElection.text = "November 2018 Midterms"
         
         return (cell)
         
@@ -34,7 +33,7 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
         super.viewDidLoad()
         contactTableView.dataSource = self
         contactTableView.delegate = self
-        contactTableView.rowHeight = 200
+        contactTableView.rowHeight = 163
       
         //Register delegate
        
