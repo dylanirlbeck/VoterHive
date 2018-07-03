@@ -8,13 +8,33 @@
 
 import SwiftMultiSelect
 
-class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate {
+class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    @IBOutlet weak var contactTableView: UITableView!
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MainScreenTableViewCell
+        cell.nameField.text = "Dylan"
+        cell.currentElection.text = "November 2018 Midterms"
+        
+        return (cell)
+        
+    }
     
     
+    @IBAction func buttonAction(_ sender: Any) {
+        SwiftMultiSelect.Show(to: self)
+    }
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+        contactTableView.dataSource = self
+        contactTableView.delegate = self
+        contactTableView.rowHeight = 200
       
         //Register delegate
        
@@ -24,6 +44,8 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate {
         
         
     }
+    
+  
     
     @IBAction func loadContactStuff(_ sender: Any) {
       let sms: String = "sms:+=12246882592&body=Hello Abc How are You I am ios developer."

@@ -19,12 +19,12 @@ class OpeningScreen: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserName.delegate = self
+        //UserName.delegate = self
         Password.delegate = self
         UITextField.appearance().keyboardAppearance = .dark
         self.hideKeyboard()
-        makeBottomBorder(UserName)
-        makeBottomBorder(Password)
+        //makeBottomBorder(UserName)
+        //makeBottomBorder(Password)
         
         // Do any additional setup after loading the view, typically from a nib.
     }

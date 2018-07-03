@@ -7,4 +7,6 @@ target 'MobileVoterOutreachApplication' do
 
   # Pods for MobileVoterOutreachApplication
   pod 'SwiftMultiSelect'
+  pod 'BEMCheckBox'
+  pod 'TextFieldEffects'
 end

@@ -1,16 +1,24 @@
 PODS:
+  - BEMCheckBox (1.4.1)
   - SwiftMultiSelect (0.2.4)
+  - TextFieldEffects (1.4.0)
 
 DEPENDENCIES:
+  - BEMCheckBox
   - SwiftMultiSelect
+  - TextFieldEffects
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - BEMCheckBox
     - SwiftMultiSelect
+    - TextFieldEffects
 
 SPEC CHECKSUMS:
+  BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
   SwiftMultiSelect: 50e4c628935492d30d3c45ab88901502c3eb52f4
+  TextFieldEffects: 4ee41b5216e674d55fb6ac25107bf1af7629176f
 
-PODFILE CHECKSUM: 5dc92a4d035ab0f1386582c4d5977d5fa1f9b0d6
+PODFILE CHECKSUM: 7b804d1a0908f72f83439d95a28800da593aca94
 
 COCOAPODS: 1.5.3

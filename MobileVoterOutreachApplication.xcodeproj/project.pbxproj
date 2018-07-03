@@ -11,6 +11,7 @@
 		7C41551120E296F1003E13C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C41551020E296F1003E13C2 /* AppDelegate.swift */; };
 		7C41551620E296F1003E13C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C41551420E296F1003E13C2 /* Main.storyboard */; };
 		7C41551820E296F3003E13C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C41551720E296F3003E13C2 /* Assets.xcassets */; };
+		7C74B7E120EBDF4800CA78E5 /* MainScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C74B7E020EBDF4800CA78E5 /* MainScreenTableViewCell.swift */; };
 		7CC06F1E20E2D6D00006988A /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC06F1D20E2D6D00006988A /* PageViewController.swift */; };
 		7CC06F2020E572DC0006988A /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC06F1F20E572DC0006988A /* TextFieldExtension.swift */; };
 		7CC06F2220E573170006988A /* OpeningScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC06F2120E573170006988A /* OpeningScreen.swift */; };
@@ -30,6 +31,7 @@
 		7C41551520E296F1003E13C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7C41551720E296F3003E13C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C41551C20E296F3003E13C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C74B7E020EBDF4800CA78E5 /* MainScreenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTableViewCell.swift; sourceTree = "<group>"; };
 		7CC06F1D20E2D6D00006988A /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		7CC06F1F20E572DC0006988A /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
 		7CC06F2120E573170006988A /* OpeningScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningScreen.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				7CC06F2720E581E20006988A /* HideKeyBoardExtension.swift */,
 				7CC06F2920E58BE80006988A /* ButtonExtension.swift */,
 				7CC06F3520E68B450006988A /* SecondOpeningScreen.swift */,
+				7C74B7E020EBDF4800CA78E5 /* MainScreenTableViewCell.swift */,
 			);
 			path = MobileVoterOutreachApplication;
 			sourceTree = "<group>";
@@ -204,11 +207,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MobileVoterOutreachApplication/Pods-MobileVoterOutreachApplication-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMultiSelect/SwiftMultiSelect.framework",
+				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMultiSelect.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -227,6 +234,7 @@
 				7CC06F2820E581E20006988A /* HideKeyBoardExtension.swift in Sources */,
 				7CC06F1E20E2D6D00006988A /* PageViewController.swift in Sources */,
 				7CC06F2620E57FE30006988A /* RoundButton.swift in Sources */,
+				7C74B7E120EBDF4800CA78E5 /* MainScreenTableViewCell.swift in Sources */,
 				7CC06F2020E572DC0006988A /* TextFieldExtension.swift in Sources */,
 				7CC06F2220E573170006988A /* OpeningScreen.swift in Sources */,
 				7C41551120E296F1003E13C2 /* AppDelegate.swift in Sources */,
