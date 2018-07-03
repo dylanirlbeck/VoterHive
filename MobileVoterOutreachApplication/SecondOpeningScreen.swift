@@ -7,8 +7,33 @@
 //
 
 import SwiftMultiSelect
+import UIKit
+import MessageUI
 
-class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableViewDelegate, UITableViewDataSource {
+class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableViewDelegate, UITableViewDataSource, MFMessageComposeViewController {
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func sendMessage(_ sender: Any) {
+        let messageText = "Hey! This election in November is pretty important. Are you going to vote?"
+        let phoneNumber = String()
+        
+        // checks to see if we're allowed to send texts
+        if !MFMessageComposeViewController.canSendText() {
+            print("SMS services are not available")
+        }
+        
+        // composes message
+        let messageVC = MFMessageComposeViewController()
+        messageVC.body = messageText;
+        messageVC.recipients = [phoneNumber]
+        messageVC.messageComposeDelegate = self;
+        
+        // displays message
+        self.present(messageVC, animated: true, completion: nil)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
