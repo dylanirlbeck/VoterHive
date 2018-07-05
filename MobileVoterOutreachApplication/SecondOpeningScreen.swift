@@ -7,8 +7,10 @@
 //
 
 import SwiftMultiSelect
+import BEMCheckBox
 
-class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableViewDelegate, UITableViewDataSource {
+
+class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableViewDelegate, UITableViewDataSource, BEMCheckBoxDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
@@ -22,7 +24,9 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
         
         return (cell)
         
+        
     }
+    
     
     
     @IBAction func buttonAction(_ sender: Any) {

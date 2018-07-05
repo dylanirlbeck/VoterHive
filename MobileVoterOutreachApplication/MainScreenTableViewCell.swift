@@ -9,7 +9,7 @@
 import UIKit
 import BEMCheckBox
 
-class MainScreenTableViewCell: UITableViewCell {
+class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate {
 
     @IBOutlet weak var currentElection: UILabel!
     
@@ -33,7 +33,26 @@ class MainScreenTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        
     }
+ 
+    
+    @IBAction func thirdCheckClicked(_ sender: Any) {
+        
+        if (FirstCheck.on == false) {
+            ThirdCheck.setOn(false, animated: true)
+        }
+        // run a function
+        
+        print ("User tapped")
+        
+    }
+    
+    
+    
+    
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
