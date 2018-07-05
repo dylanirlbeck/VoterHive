@@ -37,7 +37,8 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
         super.viewDidLoad()
         contactTableView.dataSource = self
         contactTableView.delegate = self
-        contactTableView.rowHeight = 163
+        contactTableView.rowHeight = 140
+        
       
         //Register delegate
        

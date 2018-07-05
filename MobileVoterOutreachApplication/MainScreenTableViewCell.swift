@@ -40,20 +40,34 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate {
     
     @IBAction func thirdCheckClicked(_ sender: Any) {
         
-        if (FirstCheck.on == false) {
+        if (FirstCheck.on == false || SecondCheck.on == false) {
             ThirdCheck.setOn(false, animated: true)
         }
         // run a function
         
-        print ("User tapped")
+        print ("User tapped third check")
         
     }
     
     
     
+    @IBAction func firstCheckClicked(_ sender: Any) {
+        
+        // run a function
+        
+        print ("User tapped first check")
+    }
     
     
-
+    @IBAction func secondCheckClicked(_ sender: Any) {
+        if (FirstCheck.on == false) {
+            SecondCheck.setOn(false, animated: true)
+        }
+        // run a function
+        
+        print ("User tapped second check")
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
