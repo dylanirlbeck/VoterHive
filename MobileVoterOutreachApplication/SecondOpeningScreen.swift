@@ -20,7 +20,7 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MainScreenTableViewCell
-        cell.nameField.text = "Dylan"
+        cell.nameField.text = "Dylan Irlbeck"
         
         return (cell)
         
