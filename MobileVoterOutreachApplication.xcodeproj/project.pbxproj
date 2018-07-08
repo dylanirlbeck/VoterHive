@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		05DFEE673A22E6B45E50ABB3 /* Pods_MobileVoterOutreachApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64199BD19DD1D8F977D11035 /* Pods_MobileVoterOutreachApplication.framework */; };
+		6740542A20F298290002A711 /* StateLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6740542920F298290002A711 /* StateLinks.swift */; };
 		7C41551120E296F1003E13C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C41551020E296F1003E13C2 /* AppDelegate.swift */; };
 		7C41551620E296F1003E13C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C41551420E296F1003E13C2 /* Main.storyboard */; };
 		7C41551820E296F3003E13C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C41551720E296F3003E13C2 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		19E0EF01D2BBC27905565308 /* Pods-MobileVoterOutreachApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileVoterOutreachApplication.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MobileVoterOutreachApplication/Pods-MobileVoterOutreachApplication.debug.xcconfig"; sourceTree = "<group>"; };
 		64199BD19DD1D8F977D11035 /* Pods_MobileVoterOutreachApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileVoterOutreachApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6740542920F298290002A711 /* StateLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateLinks.swift; sourceTree = "<group>"; };
 		7C41550D20E296F1003E13C2 /* MobileVoterOutreachApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileVoterOutreachApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C41551020E296F1003E13C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C41551520E296F1003E13C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				7CC06F2920E58BE80006988A /* ButtonExtension.swift */,
 				7CC06F3520E68B450006988A /* SecondOpeningScreen.swift */,
 				7C74B7E020EBDF4800CA78E5 /* MainScreenTableViewCell.swift */,
+				6740542920F298290002A711 /* StateLinks.swift */,
 				7C74B7E720EC218E00CA78E5 /* BEMCheckBox.h */,
 				7C74B7E820EC219D00CA78E5 /* BEMCheckBoxGroup.h */,
 				7C74B7E620EC20DF00CA78E5 /* CheckMarkHeader.h */,
@@ -246,6 +249,7 @@
 				7CC06F2020E572DC0006988A /* TextFieldExtension.swift in Sources */,
 				7CC06F2220E573170006988A /* OpeningScreen.swift in Sources */,
 				7C41551120E296F1003E13C2 /* AppDelegate.swift in Sources */,
+				6740542A20F298290002A711 /* StateLinks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

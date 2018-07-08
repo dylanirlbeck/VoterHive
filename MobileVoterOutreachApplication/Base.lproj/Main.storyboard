@@ -165,7 +165,7 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" misplaced="YES" text="Voted" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSh-Rw-V6t">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Voted" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSh-Rw-V6t">
                                                     <rect key="frame" x="288" y="112" width="70" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="14"/>
@@ -210,7 +210,7 @@
                                                         <action selector="secondCheckClicked:" destination="5zH-mx-a8z" eventType="valueChanged" id="Tqs-4W-wkT"/>
                                                     </connections>
                                                 </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yXC-OC-Hae" customClass="BEMCheckBox">
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yXC-OC-Hae" customClass="BEMCheckBox">
                                                     <rect key="frame" x="277" y="44" width="70" height="61"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -229,7 +229,7 @@
                                                         <action selector="thirdCheckClicked:" destination="5zH-mx-a8z" eventType="valueChanged" id="o8M-rm-jmr"/>
                                                     </connections>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" misplaced="YES" text="Dylan Irlbeck" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5d-Z8-Ud4">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dylan Irlbeck" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5d-Z8-Ud4">
                                                     <rect key="frame" x="118" y="4" width="139" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
@@ -253,11 +253,11 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7eo-aa-for">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7eo-aa-for">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" misplaced="YES" text="VoterHive" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lda-4T-PNt">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VoterHive" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lda-4T-PNt">
                                         <rect key="frame" x="137" y="25" width="194" height="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="33"/>
@@ -329,30 +329,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dtu-Qy-chp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1357" y="489"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="p57-Iv-y9J">
-            <objects>
-                <viewController storyboardIdentifier="InformationPageTwo" id="oUK-MO-VE7" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="rzq-8I-oJD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Hey, are you gonna vote this November? " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8ds-Fb-EcP">
-                                <rect key="frame" x="67" y="232" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.20096758008003235" green="0.53150230646133423" blue="0.74512547254562378" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <viewLayoutGuide key="safeArea" id="eZG-op-WbQ"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wWP-N5-OUX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="514" y="1177"/>
         </scene>
     </scenes>
 </document>
