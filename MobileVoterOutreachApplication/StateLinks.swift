@@ -8,11 +8,10 @@
 
 import Foundation
 
-//: Playground - noun: a place where people can play
-
 import UIKit
 
-import UIKit
+// registerLink -> registerToVoteLink
+// requestMailInBallot -> requestMailInBallotLink
 
 class State {
     var name = String()
@@ -26,6 +25,7 @@ class State {
 }
 
 func makeState(name: String, canRegisterOnline: Bool, registerLink: String, checkRegistrationLink: String, canVoteEarly: Bool, requestMailInBallot: String, checkBallotLink: String, findPollingPlaceLink: String) -> State {
+    // initializes a states Bool values and hardcoded links
     let s = State()
     s.name = name
     s.canRegisterOnline = canRegisterOnline
@@ -38,6 +38,7 @@ func makeState(name: String, canRegisterOnline: Bool, registerLink: String, chec
     return s
 }
 
+// array of state names
 let stateNamesArray = ["Alaska",
                        "Alabama",
                        "Arkansas",
@@ -90,30 +91,31 @@ let stateNamesArray = ["Alaska",
                        "West Virginia",
                        "Wyoming"]
 
+// array of state objects
 let statesArray = [makeState(name: "Alabama",
                              canRegisterOnline: true,
-                             registerLink: "https://www.alabamavotes.gov/olvr/default.aspx",
-                             checkRegistrationLink: "https://myinfo.alabamavotes.gov/VoterView/RegistrantSearch.do",
+                             registerLink: "",
+                             checkRegistrationLink: "",
                              canVoteEarly: false,
-                             requestMailInBallot: "https://sos.alabama.gov/alabama-votes/voter/absentee-voting?m=voters",
-                             checkBallotLink: "https://myinfo.alabamavotes.gov/VoterView/Home.do",
-                             findPollingPlaceLink: "https://myinfo.alabamavotes.gov/VoterView/PollingPlaceSearch.do"),
+                             requestMailInBallot: "",
+                             checkBallotLink: "",
+                             findPollingPlaceLink: ""),
                    makeState(name: "Alaska",
                              canRegisterOnline: true,
-                             registerLink: "https://www.usvotefoundation.org/vote/voter-registration-absentee-voting.htm",
-                             checkRegistrationLink: "https://myvoterinformation.alaska.gov",
+                             registerLink: "",
+                             checkRegistrationLink: "",
                              canVoteEarly: true,
-                             requestMailInBallot: "http://www.elections.alaska.gov/Core/votingbeforeelectionday.php",
-                             checkBallotLink: "https://myvoterinformation.alaska.gov/",
-                             findPollingPlaceLink: "https://myvoterinformation.alaska.gov/"),
+                             requestMailInBallot: "",
+                             checkBallotLink: "",
+                             findPollingPlaceLink: ""),
                    makeState(name: "Arizona",
                              canRegisterOnline: true,
-                             registerLink: "https://servicearizona.com/webapp/evoter/selectLanguage",
-                             checkRegistrationLink: "https://voter.azsos.gov/VoterView/RegistrantSearch.do",
+                             registerLink: "",
+                             checkRegistrationLink: "",
                              canVoteEarly: true,
-                             requestMailInBallot: "https://azsos.gov/elections/voting-election/contact-information-county-election-officials",
-                             checkBallotLink: "https://voter.azsos.gov/VoterView/Home.do",
-                             findPollingPlaceLink: "https://voter.azsos.gov/VoterView/PollingPlaceSearch.do"),
+                             requestMailInBallot: "",
+                             checkBallotLink: "",
+                             findPollingPlaceLink: ""),
                    makeState(name: "",
                              canRegisterOnline: true,
                              registerLink: "",
@@ -500,6 +502,7 @@ let statesArray = [makeState(name: "Alabama",
                              findPollingPlaceLink: "")]
 
 func initStateDictionary(withKeys: [String], andValues: [State]) -> Dictionary<String,State> {
+    // initializes dictionary of states
     var stateDictionary = Dictionary<String,State>()
     stateDictionary.reserveCapacity(51)
     for stateName in withKeys {
@@ -514,8 +517,33 @@ func initStateDictionary(withKeys: [String], andValues: [State]) -> Dictionary<S
 
 let stateDictionary = initStateDictionary(withKeys: stateNamesArray, andValues: statesArray)
 
+func getLink(to search: String, in state: String) -> String {
+    // creates link to website
+    let space = "%20"
+    let search = search.replacingOccurrences(of: " ", with: space)
+    let link = "http://www.google.com/search?q=" + search + space + state + "&btnI"
+    return link
+}
+
 func getState(of stateName: String) -> State {
-    return stateDictionary[stateName]!
+    // completes state initialization
+    var state = stateDictionary[stateName]!
+    if state.registerLink == "" {
+        state.registerLink = getLink(to: "register to vote in", in: stateName)
+    }
+    if state.checkRegistrationLink == "" {
+        state.checkRegistrationLink = getLink(to: "am i registered to vote in", in: stateName)
+    }
+    if state.requestMailInBallot == "" {
+        state.requestMailInBallot = getLink(to: "request ballot", in: stateName)
+    }
+    if state.checkBallotLink == "" {
+        state.checkBallotLink = getLink(to: "where is my ballot", in: stateName)
+    }
+    if state.registerLink == "" {
+        state.findPollingPlaceLink = getLink(to: "where is my polling place", in: stateName)
+    }
+    return state
 }
 
 getState(of: "Alabama")
