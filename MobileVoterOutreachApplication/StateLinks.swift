@@ -521,8 +521,10 @@ let statesArray = [makeState(name: "Alabama",
         func getLink(to search: String, in state: String) -> String {
     // creates link to website
     let space = "%20"
-    let search = search.replacingOccurrences(of: " ", with: space)
-    let link = "http://www.google.com/search?q=" + search + space + state + "&btnI"
+    let search = search.replacingOccurrences(of: " ", with: space).append(space)
+    let govOnly = "site%3A.gov".append(space)
+    let feelingLucky = "&btnI"
+    let link = "http://www.google.com/search?q=" + govOnly + search + state + feelingLucky
     return link
 }
         
