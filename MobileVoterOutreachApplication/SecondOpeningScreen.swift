@@ -14,15 +14,17 @@ import ContactsUI
 
 
 class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableViewDelegate, UITableViewDataSource, MFMessageComposeViewControllerDelegate {
+    
+    
     var contactArray = [personInfo]()
     struct personInfo {
         var name: String?
         var phone: String?
         var checkMarks: Int?
     }
-    
-    var numbRows: Int = 0
-    
+    var counter: Int = 0
+    var numbRows: Int = 3
+    var labelArray = ["VoterHive", "VoterHive", "VoterHive"]
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return numbRows
     }
@@ -31,10 +33,12 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MainScreenTableViewCell
-        cell.nameField.text = "Dylan Irlbeck"
-        cell.viewController = self
-        return (cell)
+        cell.nameField.text = labelArray[counter]
         
+        cell.viewController = self
+        
+        counter += 1
+        return (cell)
         
     }
     func displayMessages(body: String, number: String) {
@@ -106,29 +110,37 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
         fetchRequest.sortOrder = CNContactSortOrder.userDefault
         
         let store = CNContactStore()
-        
+        var number = -1
+        var phoneNumber : String = ""
         do {
             try store.enumerateContacts(with: fetchRequest, usingBlock: { (contact, stop) -> Void in
                 
                 let phoneNumbers = contact.phoneNumbers
-                
                 for phnCtr in phoneNumbers
                 {
-                    let phoneNumber = (phnCtr.value as! CNPhoneNumber).value(forKey: "digits") as! String
                     
-                    print(phoneNumber)
-                    print(contact.givenName)
-                    for count in self.contactArray {
-                        if (count.name == contact.givenName) {
-                            
-                        }
-                        else {
-                             let currentPerson = personInfo(name: contact.givenName, phone: phoneNumber, checkMarks: 0)
-                             self.contactArray.append(currentPerson)
-                        }
-                    }
+                    number += 1
+                    phoneNumber = (phnCtr.value as! CNPhoneNumber).value(forKey: "digits") as! String
+                    
+                    let currentPerson = personInfo(name: contact.givenName, phone: phoneNumber, checkMarks: 0)
+                    self.contactArray.append(currentPerson)
                    
-                }
+                    }
+                //print(self.contactArray[number].name)
+                //print(self.contactArray[number].phone)
+//                for count in self.contactArray {
+//
+//                    if (count.name == contact.givenName) {
+//
+//                    }
+//                    else {
+//
+//                        print(currentPerson.name)
+//                    }
+//
+//                }
+//
+                
                 
                 results.append(contact)
                 
@@ -152,11 +164,12 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
         contactTableView.dataSource = self
         contactTableView.delegate = self
         contactTableView.rowHeight = 140
+        print(getState(of: "Georgia").name)
         
         getContacts()
-        for int in contactArray {
-            print(int.name)
-        }
+//        for int in contactArray {
+//            print(int.name)
+//        }
         
         //Register delegate
        
@@ -205,13 +218,23 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
         print("you have been selected: \(items.count) items!")
         
         numbRows = items.count
-        contactTableView.reloadData()
         
-        
+        var setTableName = ""
+        var index = 0
         for item in items{
-            print(item.userInfo)
+            //print(item.userInfo)
+            //print(item.title)
+           
+                
+            labelArray[index] = item.title
+            index += 1
+                
+            
+            
             
         }
+        self.counter = 0
+        contactTableView.reloadData()
         
     }
     
