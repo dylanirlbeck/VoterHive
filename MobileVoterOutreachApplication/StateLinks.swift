@@ -22,23 +22,11 @@ class State {
     var requestMailInBallot = String()
     var checkBallotLink = String()
     var findPollingPlaceLink = String()
-}
-
-func makeState(name: String, canRegisterOnline: Bool, registerLink: String, checkRegistrationLink: String, canVoteEarly: Bool, requestMailInBallot: String, checkBallotLink: String, findPollingPlaceLink: String) -> State {
-    // initializes a states Bool values and hardcoded links
-    let s = State()
-    s.name = name
-    s.canRegisterOnline = canRegisterOnline
-    s.registerLink = registerLink
-    s.checkRegistrationLink = checkRegistrationLink
-    s.canVoteEarly = canVoteEarly
-    s.requestMailInBallot = requestMailInBallot
-    s.checkBallotLink = checkBallotLink
-    s.findPollingPlaceLink = findPollingPlaceLink
-    return s
-}
-
-// array of state names
+    
+    func getState(of stateName: String) -> State {
+    // completes state initialization
+        
+        // array of state names
 let stateNamesArray = ["Alabama",
                        "Alaska",
                        "Arizona",
@@ -90,8 +78,23 @@ let stateNamesArray = ["Alabama",
                        "West Virginia",
                        "Wisconsin",
                        "Wyoming"]
+        
+        func makeState(name: String, canRegisterOnline: Bool, registerLink: String, checkRegistrationLink: String, canVoteEarly: Bool, requestMailInBallot: String, checkBallotLink: String, findPollingPlaceLink: String) -> State {
+    // initializes a State's Bool values and hardcoded links
+    let newState = State()
+    newState.name = name
+    newState.canRegisterOnline = canRegisterOnline
+    newState.registerLink = registerLink
+    newState.checkRegistrationLink = checkRegistrationLink
+    newState.canVoteEarly = canVoteEarly
+    newState.requestMailInBallot = requestMailInBallot
+    newState.checkBallotLink = checkBallotLink
+    newState.findPollingPlaceLink = findPollingPlaceLink
+    return newState
+}
 
-// array of state objects
+        
+        // array of state objects
 let statesArray = [makeState(name: "Alabama",
                              canRegisterOnline: true,
                              registerLink: "",
@@ -500,50 +503,47 @@ let statesArray = [makeState(name: "Alabama",
                              requestMailInBallot: "",
                              checkBallotLink: "",
                              findPollingPlaceLink: "")]
-
-func initStateDictionary(withKeys: [String], andValues: [State]) -> Dictionary<String,State> {
+        
+        func initStateDictionary(withKeys: [String], andValues: [State]) -> Dictionary<String,State> {
     // initializes dictionary of states
     var stateDictionary = Dictionary<String,State>()
     stateDictionary.reserveCapacity(51)
-    for stateName in withKeys {
-        for state in andValues {
-            print(stateName + "\n" + state.name)
-            state.name = stateName
-            stateDictionary.updateValue(state, forKey: stateName)
-        }
-    }
+            var index = 0
+            while index < 50 {
+                stateDictionary.updateValue(statesArray[index], forKey: stateNamesArray[index])
+            }
     return stateDictionary
-}
-
-let stateDictionary = initStateDictionary(withKeys: stateNamesArray, andValues: statesArray)
-
-func getLink(to search: String, in state: String) -> String {
+        }
+        
+        let stateDictionary = initStateDictionary(withKeys: stateNamesArray, andValues: statesArray)
+        var thisState = stateDictionary[stateName]!
+    
+        func getLink(to search: String, in state: String) -> String {
     // creates link to website
     let space = "%20"
     let search = search.replacingOccurrences(of: " ", with: space)
     let link = "http://www.google.com/search?q=" + search + space + state + "&btnI"
     return link
 }
-
-func getState(of stateName: String) -> State {
-    // completes state initialization
-    var state = stateDictionary[stateName]!
-    if state.registerLink == "" {
-        state.registerLink = getLink(to: "register to vote in", in: stateName)
+        
+        if thisState.registerLink == "" {
+        thisState.registerLink = getLink(to: "register to vote in", in: stateName)
     }
-    if state.checkRegistrationLink == "" {
-        state.checkRegistrationLink = getLink(to: "am i registered to vote in", in: stateName)
+    if thisState.checkRegistrationLink == "" {
+        thisState.checkRegistrationLink = getLink(to: "am i registered to vote in", in: stateName)
     }
-    if state.requestMailInBallot == "" {
-        state.requestMailInBallot = getLink(to: "request ballot", in: stateName)
+    if thisState.requestMailInBallot == "" {
+        thisState.requestMailInBallot = getLink(to: "request ballot", in: stateName)
     }
-    if state.checkBallotLink == "" {
-        state.checkBallotLink = getLink(to: "where is my ballot", in: stateName)
+    if thisState.checkBallotLink == "" {
+        thisState.checkBallotLink = getLink(to: "where is my ballot", in: stateName)
     }
-    if state.registerLink == "" {
-        state.findPollingPlaceLink = getLink(to: "where is my polling place", in: stateName)
+    if thisState.registerLink == "" {
+        thisState.findPollingPlaceLink = getLink(to: "where is my polling place", in: stateName)
     }
-    return state
+    return thisState
+}
 }
 
-getState(of: "Alabama")
+let myState = State()
+myState.getState(of: "Alabama")
