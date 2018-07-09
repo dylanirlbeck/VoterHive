@@ -97,7 +97,7 @@ public struct Config {
     /// Background of main view
     public static var mainBackground        :   UIColor    = UIColor.white
     /// View's title
-    public static var viewTitle             :   String     = "Swift Multiple Select"
+    public static var viewTitle             :   String     = "Select Contacts"
     /// Title for done button
     public static var doneString            :   String     = "Done"
     //Placeholder image during lazy load
@@ -112,6 +112,8 @@ public struct Config {
         ThemeColors.pumpkinColor,
         ThemeColors.sunflowerColor
     ]
+ 
+    //public static var colorArray : UIColor = UIColor.init(red:0.00, green:0.54, blue:0.76, alpha:1.0)
     
     /// Define the style of tableview
     public struct tableStyle{

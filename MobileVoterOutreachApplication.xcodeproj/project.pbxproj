@@ -389,7 +389,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = edu.illinois.cs.irlbeck2.MobileVoterOutreachApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = VoterHive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = MobileVoterOutreachApplication/CheckMarkHeader.h;
 				SWIFT_VERSION = 4.0;
@@ -409,7 +409,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = edu.illinois.cs.irlbeck2.MobileVoterOutreachApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = VoterHive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = MobileVoterOutreachApplication/CheckMarkHeader.h;
 				SWIFT_VERSION = 4.0;

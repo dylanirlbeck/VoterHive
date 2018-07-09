@@ -9,6 +9,7 @@
 import UIKit
 import BEMCheckBox
 import SCLAlertView
+import MessageUI
 
 class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate {
 
@@ -30,6 +31,7 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate {
     
     @IBOutlet weak var FirstCheck: BEMCheckBox!
     
+    weak var viewController : SecondOpeningScreen?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -66,7 +68,7 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate {
                 }
             }
             
-            alertView.showInfo("Voted?", subTitle: "This is the voted? alert")
+            alertView.showSuccess("Voted?", subTitle: "This is the voted? alert")
         } else if (ThirdCheck.on == false) {
             ThirdCheck.setOn(true, animated: false)
             let appearance = SCLAlertView.SCLAppearance(
@@ -84,7 +86,7 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate {
                 self.ThirdCheck.setOn(false, animated: true)
                
             }
-            alertView.showInfo("Voted?", subTitle: "Do you want to erase this contact's Voted checkmark?")
+            alertView.showSuccess("Voted?", subTitle: "Do you want to erase this contact's Voted checkmark?")
             print("User tried to delete Voted check")
         }
         else {
@@ -101,7 +103,7 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate {
         
        
         // run a function
-        //SCLAlertView().showInfo("Voting", subTitle: "Is this contact voting? If you have not done so, please click the 'Contact' button below to send a message. If you have heard back with a confirmation, please select Done")
+        //SCLAlertView().showSuccess("Voting", subTitle: "Is this contact voting? If you have not done so, please click the 'Contact' button below to send a message. If you have heard back with a confirmation, please select Done")
         if (FirstCheck.on == true) {
         FirstCheck.setOn(false, animated: false)
         let appearance = SCLAlertView.SCLAppearance(
@@ -115,14 +117,26 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate {
         alertView.addButton("Cancel") {
             alertView.hideView()
         }
+            
         alertView.addButton("Reach Out") {
-            //put code for SMS Voting message here
+
+            self.viewController?.displayMessages(body: "https://www.headcount.org/verify-voter-registration/", number: "")
+                        //put code for SMS Voting message here
+            
         }
+            
         alertView.addButton("Voting!") {
             self.FirstCheck.setOn(true, animated: true)
+            var num = 0
+            for count in (self.viewController?.contactArray)! {
+                if (count.name == self.nameField.text) {
+                    self.viewController?.contactArray[num].checkMarks = 1
+                }
+                num += 1
+            }
         }
         
-        alertView.showInfo("Voting?", subTitle: "This is the voting? alert")
+        alertView.showSuccess("Voting?", subTitle: "This is the voting? alert")
         } else if (FirstCheck.on == false) {
             FirstCheck.setOn(true, animated: false)
             let appearance = SCLAlertView.SCLAppearance(
@@ -139,7 +153,7 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate {
             alertView.addButton("Erase") {
                 self.FirstCheck.setOn(false, animated: true)
             }
-            alertView.showInfo("Voting?", subTitle: "Do you want to erase this contact's Voting checkmark?")
+            alertView.showSuccess("Voting?", subTitle: "Do you want to erase this contact's Voting checkmark?")
             print("User tried to delete voting check")
         }
         else {
@@ -187,7 +201,7 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate {
                 }
             }
             
-            alertView.showInfo("Registered?", subTitle: "This is the registered? alert.Note: You must have the Voting check activated for the Registered check to work")
+            alertView.showSuccess("Registered?", subTitle: "This is the registered? alert.Note: You must have the Voting check activated for the Registered check to work")
         } else if (SecondCheck.on == false) {
             SecondCheck.setOn(true, animated: false)
             let appearance = SCLAlertView.SCLAppearance(
@@ -204,7 +218,7 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate {
             alertView.addButton("Erase") {
                 self.SecondCheck.setOn(false, animated: true)
             }
-            alertView.showInfo("Registered?", subTitle: "Do you want to erase this contact's Registered checkmark?")
+            alertView.showSuccess("Registered?", subTitle: "Do you want to erase this contact's Registered checkmark?")
             print("User tried to delete registered check")
         }
         else {
