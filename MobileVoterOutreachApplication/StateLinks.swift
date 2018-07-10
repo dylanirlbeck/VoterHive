@@ -505,13 +505,18 @@ func initStateDictionary(withKeys: [String], andValues: [State]) -> Dictionary<S
     // initializes dictionary of states
     var stateDictionary = Dictionary<String,State>()
     stateDictionary.reserveCapacity(51)
-    for stateName in withKeys {
-        for state in andValues {
-            print(stateName + "\n" + state.name)
-            state.name = stateName
-            stateDictionary.updateValue(state, forKey: stateName)
-        }
+    var count = 0
+    while count < 50 {
+        stateDictionary.updateValue(andValues[count], forKey: withKeys[count])
+        count += 1
     }
+//    for stateName in withKeys {
+//        for state in andValues {
+//            state.name == stateName
+//            stateDictionary.updateValue(state, forKey: stateName)
+//
+//        }
+//    }
     return stateDictionary
 }
 

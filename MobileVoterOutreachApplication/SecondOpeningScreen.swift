@@ -15,32 +15,68 @@ import ContactsUI
 
 class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableViewDelegate, UITableViewDataSource, MFMessageComposeViewControllerDelegate {
     
+   
+    
+    //boolean to set up initial # of table view cells
+    var openingBoolean: Bool = true
     
     var contactArray = [personInfo]()
-    struct personInfo {
-        var name: String?
-        var phone: String?
-        var checkMarks: Int?
-    }
+    
     var counter: Int = 0
-    var numbRows: Int = 3
-    var labelArray = ["VoterHive", "VoterHive", "VoterHive"]
+    
+    var lastIndex: Int = 5
+    
+    var labelArray = [String]()
+    
+    var currentIndexPathArr = [IndexPath]()
+    
+    var lastRow: Int = 0
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numbRows
+        return lastIndex
     }
+    // to ensure app does not crash on table view reload data
+    var tracker: Bool = false
     
     @IBOutlet weak var contactTableView: UITableView!
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MainScreenTableViewCell
-        cell.nameField.text = labelArray[counter]
         
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MainScreenTableViewCell
+        while (counter < labelArray.count) {
+        print(labelArray[0])
+        cell.nameField.text = labelArray[counter]
+        for person in contactArray {
+            if (person.name.uppercased().trimmingCharacters(in: .whitespaces) == labelArray[counter].uppercased().trimmingCharacters(in: .whitespaces)) {
+                cell.currentPerson = person
+            }
+        }
+        //add a fill check mark function
         cell.viewController = self
         
         counter += 1
+        return(cell)
+        }
         return (cell)
+        }
+    
         
+    
+    
+    // detect when table view has finished loading its data
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
+            if indexPath == lastVisibleIndexPath {
+                //("this function processed")
+                currentIndexPathArr.removeAll()
+                tracker = false
+                //print(counter)
+               
+            }
+        }
     }
+    
     func displayMessages(body: String, number: String) {
         let messageText = body
         let phoneNumber = number
@@ -72,36 +108,6 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
     
     
     func getContacts() {
-//            var thisnumber: String = ""
-//            var thisname: String = ""
-//            let status = CNContactStore.authorizationStatus(for: CNEntityType.contacts) as CNAuthorizationStatus
-//
-//            if status == CNAuthorizationStatus.denied {
-//
-//                return
-//            }
-//            let contactStore = CNContactStore()
-//            let keysToFetch = [
-//                CNContactFormatter.descriptorForRequiredKeys(for: .fullName),
-//                CNContactPhoneNumbersKey ] as [Any]
-//
-//
-//            let request = CNContactFetchRequest(keysToFetch:keysToFetch as! [CNKeyDescriptor])
-//            do {
-//                try contactStore.enumerateContacts(with: request, usingBlock: { (contact:CNContact, stop:UnsafeMutablePointer<ObjCBool>) -> Void in
-//
-//                    for num in contact.phoneNumbers {
-//                        thisnumber = (num.value as! CNPhoneNumber).value(forKey: "digits") as! String
-//
-//                    }
-//
-//
-//
-//
-//                })
-//            } catch {
-//                //catch
-//            }
      
         var results: [CNContact] = []
         
@@ -126,20 +132,6 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
                     self.contactArray.append(currentPerson)
                    
                     }
-                //print(self.contactArray[number].name)
-                //print(self.contactArray[number].phone)
-//                for count in self.contactArray {
-//
-//                    if (count.name == contact.givenName) {
-//
-//                    }
-//                    else {
-//
-//                        print(currentPerson.name)
-//                    }
-//
-//                }
-//
                 
                 
                 results.append(contact)
@@ -155,16 +147,24 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
 
     }
         
+    @IBOutlet weak var addContactsButton: UITableView!
+    
+    
     @IBAction func buttonAction(_ sender: Any) {
         SwiftMultiSelect.Show(to: self)
     }
     override func viewDidLoad() {
-        
+ 
         super.viewDidLoad()
+        
+        addContactsButton.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
+        
+        addContactsButton.heightAnchor.constraint(equalToConstant: (UIScreen.main.bounds.height)/6).isActive = true
+        
         contactTableView.dataSource = self
         contactTableView.delegate = self
-        contactTableView.rowHeight = 140
-        print(getState(of: "Georgia").name)
+        contactTableView.rowHeight = (UIScreen.main.bounds.height)/6
+        //print(getState(of: "Illinois").name)
         
         getContacts()
 //        for int in contactArray {
@@ -175,6 +175,7 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
        
         SwiftMultiSelect.dataSourceType = .phone
         SwiftMultiSelect.delegate       = self
+        
         
         
         
@@ -193,48 +194,84 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
     //User write something in searchbar
     func userDidSearch(searchString: String) {
         
-        print("User is looking for: \(searchString)")
+        //print("User is looking for: \(searchString)")
         
     }
     
     //User did unselect an item
     func swiftMultiSelect(didUnselectItem item: SwiftMultiSelectItem) {
-        print("row: \(item.title) has been deselected!")
+        //print("row: \(item.title) has been deselected!")
     }
     
     //User did select an item
     func swiftMultiSelect(didSelectItem item: SwiftMultiSelectItem) {
-        print("item: \(item.title) has been selected!")
+        //print("item: \(item.title) has been selected!")
     }
     
     //User did close controller with no selection
     func didCloseSwiftMultiSelect() {
-        print("no items selected")
+        //print("no items selected")
     }
     
     //User completed selection
     func swiftMultiSelect(didSelectItems items: [SwiftMultiSelectItem]) {
         
-        print("you have been selected: \(items.count) items!")
-        
-        numbRows = items.count
-        
-        var setTableName = ""
-        var index = 0
+//        if (openingBoolean) {
+//            lastIndex -= 3
+//            openingBoolean = false
+//        }
+//        //print("you have been selected: \(items.count) items!")
+//
+//        lastIndex = items.count + lastIndex
+//
+//        self.counter = 0
+//
+//        var lastIndexPath = 0
+//        
+//        if (currentIndexPathArr.count > 0) {
+//        lastIndexPath = currentIndexPathArr.count - 1
+//        } else {
+//
+//        }
+//
+//        contactTableView.reloadData()
+//        print(contactTableView.numberOfRows(inSection: 0))
+//        print("")
         for item in items{
+            labelArray.append(item.title)
+        }
+        counter = 0
+        contactTableView.reloadData()
             //print(item.userInfo)
             //print(item.title)
-           
-                
-            labelArray[index] = item.title
-            index += 1
-                
+            
+//            if (labelArray.count != 0) {
+//            for someString in labelArray {
+//                if (item.title.uppercased().trimmingCharacters(in: .whitespaces) == someString.uppercased().trimmingCharacters(in: .whitespaces)) {
+//
+//                    break
+//                } else {
+//                    labelArray.append(item.title)
+//                    tracker = true
+//                    print("i did not break")
+//                }
+//
+//            }
+//            }
+//            else {
+//                labelArray.append(item.title)
+//            }
+//
+//
             
             
-            
-        }
-        self.counter = 0
-        contactTableView.reloadData()
+        
+//        print("last index path = " + String(lastIndexPath))
+//        let arrayOfIndexPaths = Array(currentIndexPathArr[lastIndexPath...  ])
+//        lastRow = contactTableView.numberOfRows(inSection: 0)
+//        //let indexPath = IndexPath(row: lastRow, section: 0)
+//        print(arrayOfIndexPaths.count)
+//        contactTableView.reloadRows(at: arrayOfIndexPaths, with: .automatic)
         
     }
     
