@@ -63,6 +63,8 @@ public class ContactsLibrary{
                 
                 let contactFetchRequest = CNContactFetchRequest(keysToFetch: self.allowedContactKeys())
                 
+                contactFetchRequest.sortOrder = CNContactSortOrder.givenName
+                
                 do {
                     var row = 0
                     try self.contactStore.enumerateContacts(with: contactFetchRequest, usingBlock: { (contact, stop) -> Void in

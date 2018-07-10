@@ -544,6 +544,38 @@ class State {
         if thisState.findPollingPlaceLink == "" {
             thisState.findPollingPlaceLink = getLink(to: "find my polling place", in: stateName)
         }
+        counter = 0
+        contactTableView.reloadData()
+            //print(item.userInfo)
+            //print(item.title)
+            
+//            if (labelArray.count != 0) {
+//            for someString in labelArray {
+//                if (item.title.uppercased().trimmingCharacters(in: .whitespaces) == someString.uppercased().trimmingCharacters(in: .whitespaces)) {
+//
+//                    break
+//                } else {
+//                    labelArray.append(item.title)
+//                    tracker = true
+//                    print("i did not break")
+//                }
+//
+//            }
+//            }
+//            else {
+//                labelArray.append(item.title)
+//            }
+//
+//
+            
+            
+        
+//        print("last index path = " + String(lastIndexPath))
+//        let arrayOfIndexPaths = Array(currentIndexPathArr[lastIndexPath...  ])
+//        lastRow = contactTableView.numberOfRows(inSection: 0)
+//        //let indexPath = IndexPath(row: lastRow, section: 0)
+//        print(arrayOfIndexPaths.count)
+//        contactTableView.reloadRows(at: arrayOfIndexPaths, with: .automatic)
         
         return thisState
     }

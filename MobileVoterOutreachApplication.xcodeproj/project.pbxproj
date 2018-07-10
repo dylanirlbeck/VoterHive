@@ -22,6 +22,7 @@
 		7CC06F2C20E682940006988A /* img_401900.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CC06F2B20E682940006988A /* img_401900.png */; };
 		7CC06F3420E685320006988A /* Icons8-Ios7-User-Interface-Password-2.ico in Resources */ = {isa = PBXBuildFile; fileRef = 7CC06F3320E685320006988A /* Icons8-Ios7-User-Interface-Password-2.ico */; };
 		7CC06F3620E68B450006988A /* SecondOpeningScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC06F3520E68B450006988A /* SecondOpeningScreen.swift */; };
+		7CF2929B20F4013500AAEB6E /* globalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF2929A20F4013500AAEB6E /* globalFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		7CC06F2B20E682940006988A /* img_401900.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = img_401900.png; path = ../../img_401900.png; sourceTree = "<group>"; };
 		7CC06F3320E685320006988A /* Icons8-Ios7-User-Interface-Password-2.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; name = "Icons8-Ios7-User-Interface-Password-2.ico"; path = "../../Icons8-Ios7-User-Interface-Password-2.ico"; sourceTree = "<group>"; };
 		7CC06F3520E68B450006988A /* SecondOpeningScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOpeningScreen.swift; sourceTree = "<group>"; };
+		7CF2929A20F4013500AAEB6E /* globalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = globalFunctions.swift; sourceTree = "<group>"; };
 		A987A49A57046AC4DF4DE506 /* Pods-MobileVoterOutreachApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileVoterOutreachApplication.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobileVoterOutreachApplication/Pods-MobileVoterOutreachApplication.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,7 @@
 				7C74B7E720EC218E00CA78E5 /* BEMCheckBox.h */,
 				7C74B7E820EC219D00CA78E5 /* BEMCheckBoxGroup.h */,
 				7C74B7E620EC20DF00CA78E5 /* CheckMarkHeader.h */,
+				7CF2929A20F4013500AAEB6E /* globalFunctions.swift */,
 			);
 			path = MobileVoterOutreachApplication;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CF2929B20F4013500AAEB6E /* globalFunctions.swift in Sources */,
 				7CC06F3620E68B450006988A /* SecondOpeningScreen.swift in Sources */,
 				7CC06F2A20E58BE80006988A /* ButtonExtension.swift in Sources */,
 				7CC06F2820E581E20006988A /* HideKeyBoardExtension.swift in Sources */,
@@ -393,7 +397,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = edu.illinois.cs.irlbeck2.MobileVoterOutreachApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = VoterHive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = MobileVoterOutreachApplication/CheckMarkHeader.h;
 				SWIFT_VERSION = 4.0;
@@ -413,7 +417,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = edu.illinois.cs.irlbeck2.MobileVoterOutreachApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = VoterHive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = MobileVoterOutreachApplication/CheckMarkHeader.h;
 				SWIFT_VERSION = 4.0;
