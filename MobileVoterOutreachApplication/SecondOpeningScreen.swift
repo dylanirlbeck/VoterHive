@@ -1,582 +1,275 @@
-//
-//  StateLinks.swift
+//  SecondOpeningScreen.swift
 //  MobileVoterOutreachApplication
 //
-//  Created by AK Alilonu on 7/8/18.
+//  Created by Dylan  Irlbeck on 6/29/18.
 //  Copyright © 2018 Dylan  Irlbeck. All rights reserved.
 //
+import SwiftMultiSelect
+import BEMCheckBox
+import MessageUI
+import ContactsUI
 
-import Foundation
 
-import UIKit
 
-// registerToVoteLink -> registerToVoteLink
-// requestMailInBallotLink -> requestMailInBallotLinkLink
-
-class State {
-    var name = String()
-    var canRegisterOnline = Bool()
-    var registerToVoteLink = String()
-    var checkRegistrationLink = String()
-    var canVoteEarly = Bool()
-    var requestMailInBallotLink = String()
-    var checkBallotLink = String()
-    var findPollingPlaceLink = String()
+class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableViewDelegate, UITableViewDataSource, MFMessageComposeViewControllerDelegate {
     
-    func of(_ stateName: String) -> State {
-        // completes state initialization
-        
-        // array of state names
-        let stateNamesArray = ["Alabama",
-                               "Alaska",
-                               "Arizona",
-                               "Arkansas",
-                               "California",
-                               "Colorado",
-                               "Connecticut",
-                               "Delaware",
-                               "District of Columbia",
-                               "Florida",
-                               "Georgia",
-                               "Hawaii",
-                               "Idaho",
-                               "Illinois",
-                               "Indiana",
-                               "Iowa",
-                               "Kansas",
-                               "Kentucky",
-                               "Louisiana",
-                               "Maine",
-                               "Maryland",
-                               "Massachusetts",
-                               "Michigan",
-                               "Minnesota",
-                               "Mississippi",
-                               "Missouri",
-                               "Montana",
-                               "Nebraska",
-                               "Nevada",
-                               "New Hampshire",
-                               "New Jersey",
-                               "New Mexico",
-                               "New York",
-                               "North Carolina",
-                               "North Dakota",
-                               "Ohio",
-                               "Oklahoma",
-                               "Oregon",
-                               "Pennsylvania",
-                               "Rhode Island",
-                               "South Carolina",
-                               "South Dakota",
-                               "Tennessee",
-                               "Texas",
-                               "Utah",
-                               "Vermont",
-                               "Virginia",
-                               "Washington",
-                               "West Virginia",
-                               "Wisconsin",
-                               "Wyoming"]
-        
-        func makeState(name: String, canRegisterOnline: Bool, registerToVoteLink: String, checkRegistrationLink: String, canVoteEarly: Bool, requestMailInBallotLink: String, checkBallotLink: String, findPollingPlaceLink: String) -> State {
-            // initializes a State's Bool values and hardcoded links
-            let newState = State()
-            newState.name = name
-            newState.canRegisterOnline = canRegisterOnline
-            newState.registerToVoteLink = registerToVoteLink
-            newState.checkRegistrationLink = checkRegistrationLink
-            newState.canVoteEarly = canVoteEarly
-            newState.requestMailInBallotLink = requestMailInBallotLink
-            newState.checkBallotLink = checkBallotLink
-            newState.findPollingPlaceLink = findPollingPlaceLink
-            return newState
-        }
+    
+    
+    //boolean to set up initial # of table view cells
+    var openingBoolean: Bool = true
+    
+    var contactArray = [personInfo]()
+    
+    var counter: Int = 0
+    
+    var lastIndex: Int = 5
+    
+    var labelArray = [String]()
+    
+    var currentIndexPathArr = [IndexPath]()
+    
+    var lastRow: Int = 0
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return lastIndex
+    }
+    // to ensure app does not crash on table view reload data
+    var tracker: Bool = false
+    
+    @IBOutlet weak var contactTableView: UITableView!
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        // array of state objects
-        let statesArray = [makeState(name: "Alabama",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: false,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Alaska",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Arizona",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Arkansas",
-                                     canRegisterOnline: false,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "California",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Colorado",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: false,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Connecticut",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: false,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Delaware",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: false,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "District of Columbia",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Florida",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Georgia",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Hawaii",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Idaho",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Illinois",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Indiana",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Iowa",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Kansas",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Kentucky",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: false,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Louisiana",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Maine",
-                                     canRegisterOnline: false,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Maryland",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Massachusetts",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Michigan",
-                                     canRegisterOnline: false,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: false,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Minnesota",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Mississippi",
-                                     canRegisterOnline: false,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: false,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Missouri",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: false,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Montana",
-                                     canRegisterOnline: false,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Nebraska",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Nevada",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "New Hampshire",
-                                     canRegisterOnline: false,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "New Jersey",
-                                     canRegisterOnline: false,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "New Mexico",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "New York",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: false,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "North Carolina",
-                                     canRegisterOnline: false,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "North Dakota",
-                                     canRegisterOnline: false,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Ohio",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Oklahoma",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Oregon",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: false,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Pennsylvania",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: false,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Rhode Island",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: false,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "South Carolina",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: false,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "South Dakota",
-                                     canRegisterOnline: false,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Tennessee",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Texas",
-                                     canRegisterOnline: false,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Utah",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Vermont",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Virginia",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: false,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Washington",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: false,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "West Virginia",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Wisconsin",
-                                     canRegisterOnline: true,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: ""),
-                           makeState(name: "Wyoming",
-                                     canRegisterOnline: false,
-                                     registerToVoteLink: "",
-                                     checkRegistrationLink: "",
-                                     canVoteEarly: true,
-                                     requestMailInBallotLink: "",
-                                     checkBallotLink: "",
-                                     findPollingPlaceLink: "")]
-        
-        func initStateDictionary(withKeys: [String], andValues: [State]) -> Dictionary<String,State> {
-            // initializes dictionary of states
-            var stateDictionary = Dictionary<String,State>()
-            stateDictionary.reserveCapacity(51)
-            var index = 0
-            while index < 50 {
-                stateDictionary.updateValue(statesArray[index], forKey: stateNamesArray[index])
-                index += 1
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MainScreenTableViewCell
+        while (counter < labelArray.count) {
+            print(labelArray[0])
+            cell.nameField.text = labelArray[counter]
+            for person in contactArray {
+                if (person.name.uppercased().trimmingCharacters(in: .whitespaces) == labelArray[counter].uppercased().trimmingCharacters(in: .whitespaces)) {
+                    cell.currentPerson = person
+                }
             }
-            return stateDictionary
+            //add a fill check mark function
+            cell.viewController = self
+            
+            counter += 1
+            return(cell)
+        }
+        return (cell)
+    }
+    
+    
+    
+    
+    // detect when table view has finished loading its data
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
+            if indexPath == lastVisibleIndexPath {
+                //("this function processed")
+                currentIndexPathArr.removeAll()
+                tracker = false
+                //print(counter)
+                
+            }
+        }
+    }
+    
+    func displayMessages(body: String, number: String) {
+        let messageText = body
+        let phoneNumber = number
+        
+        // checks to see if we're allowed to send texts
+        if !MFMessageComposeViewController.canSendText() {
+            print("SMS services are not available")
         }
         
-        let stateDictionary = initStateDictionary(withKeys: stateNamesArray, andValues: statesArray)
-        var thisState = stateDictionary[stateName]!
+        // composes message
+        let messageVC = MFMessageComposeViewController()
+        messageVC.body = messageText;
+        messageVC.recipients = [phoneNumber]
+        messageVC.messageComposeDelegate = self as? MFMessageComposeViewControllerDelegate;
         
-        func getLink(to search: String, in state: String) -> String {
-            // creates link to website
-            let space = "%20"
-            let search = search.replacingOccurrences(of: " ", with: space) + space
-            let govOnly = "site%3A.gov" + space
-            let feelingLucky = "&btnI"
-            let link = "http://www.google.com/search?q=" + govOnly + search + state.lowercased() + feelingLucky
-            return link
+        // displays message
+        
+        self.present(messageVC, animated: true, completion: nil)
+        
+        
+        
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        print("Dismiss message")
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func getContacts() {
+        
+        var results: [CNContact] = []
+        
+        let fetchRequest = CNContactFetchRequest(keysToFetch: [CNContactGivenNameKey as CNKeyDescriptor, CNContactFamilyNameKey as CNKeyDescriptor, CNContactMiddleNameKey as CNKeyDescriptor, CNContactEmailAddressesKey as CNKeyDescriptor,CNContactPhoneNumbersKey as CNKeyDescriptor])
+        
+        fetchRequest.sortOrder = CNContactSortOrder.userDefault
+        
+        let store = CNContactStore()
+        var number = -1
+        var phoneNumber : String = ""
+        do {
+            try store.enumerateContacts(with: fetchRequest, usingBlock: { (contact, stop) -> Void in
+                
+                let phoneNumbers = contact.phoneNumbers
+                for phnCtr in phoneNumbers
+                {
+                    
+                    number += 1
+                    phoneNumber = (phnCtr.value as! CNPhoneNumber).value(forKey: "digits") as! String
+                    
+                    let currentPerson = personInfo(name: contact.givenName, phone: phoneNumber, checkMarks: 0)
+                    self.contactArray.append(currentPerson)
+                    
+                }
+                
+                
+                results.append(contact)
+                
+            })
+        }
+        catch let error as NSError {
+            print(error.localizedDescription)
         }
         
-        if thisState.registerToVoteLink == "" {
-            thisState.registerToVoteLink = getLink(to: "register to vote in", in: stateName)
-        }
-        if thisState.checkRegistrationLink == "" {
-            thisState.checkRegistrationLink = getLink(to: "am i registered to vote in", in: stateName)
-        }
-        if thisState.requestMailInBallotLink == "" {
-            thisState.requestMailInBallotLink = getLink(to: "request ballot", in: stateName)
-        }
-        if thisState.checkBallotLink == "" {
-            thisState.checkBallotLink = getLink(to: "where is my ballot", in: stateName)
-        }
-        if thisState.findPollingPlaceLink == "" {
-            thisState.findPollingPlaceLink = getLink(to: "find my polling place", in: stateName)
+        
+        
+        
+    }
+    
+    @IBOutlet weak var addContactsButton: UITableView!
+    
+    
+    @IBAction func buttonAction(_ sender: Any) {
+        SwiftMultiSelect.Show(to: self)
+    }
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        addContactsButton.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
+        
+        addContactsButton.heightAnchor.constraint(equalToConstant: (UIScreen.main.bounds.height)/6).isActive = true
+        
+        contactTableView.dataSource = self
+        contactTableView.delegate = self
+        contactTableView.rowHeight = (UIScreen.main.bounds.height)/6
+        //print(getState(of: "Illinois").name)
+        
+        getContacts()
+        //        for int in contactArray {
+        //            print(int.name)
+        //        }
+        
+        //Register delegate
+        
+        SwiftMultiSelect.dataSourceType = .phone
+        SwiftMultiSelect.delegate       = self
+        
+        
+        
+        
+    }
+    
+    
+    
+    @IBAction func loadContactStuff(_ sender: Any) {
+        let sms: String = "sms:+=12246882592&body=Hello Abc How are You I am ios developer."
+        let strURL: String = sms.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        UIApplication.shared.open(URL.init(string: strURL)!, options: [:], completionHandler: nil)
+    }
+    
+    //MARK: - SwiftMultiSelectDelegate
+    
+    //User write something in searchbar
+    func userDidSearch(searchString: String) {
+        
+        //print("User is looking for: \(searchString)")
+        
+    }
+    
+    //User did unselect an item
+    func swiftMultiSelect(didUnselectItem item: SwiftMultiSelectItem) {
+        //print("row: \(item.title) has been deselected!")
+    }
+    
+    //User did select an item
+    func swiftMultiSelect(didSelectItem item: SwiftMultiSelectItem) {
+        //print("item: \(item.title) has been selected!")
+    }
+    
+    //User did close controller with no selection
+    func didCloseSwiftMultiSelect() {
+        //print("no items selected")
+    }
+    
+    //User completed selection
+    func swiftMultiSelect(didSelectItems items: [SwiftMultiSelectItem]) {
+        
+        //        if (openingBoolean) {
+        //            lastIndex -= 3
+        //            openingBoolean = false
+        //        }
+        //        //print("you have been selected: \(items.count) items!")
+        //
+        //        lastIndex = items.count + lastIndex
+        //
+        //        self.counter = 0
+        //
+        //        var lastIndexPath = 0
+        //
+        //        if (currentIndexPathArr.count > 0) {
+        //        lastIndexPath = currentIndexPathArr.count - 1
+        //        } else {
+        //
+        //        }
+        //
+        //        contactTableView.reloadData()
+        //        print(contactTableView.numberOfRows(inSection: 0))
+        //        print("")
+        for item in items{
+            labelArray.append(item.title)
         }
         counter = 0
         contactTableView.reloadData()
-            //print(item.userInfo)
-            //print(item.title)
-            
-//            if (labelArray.count != 0) {
-//            for someString in labelArray {
-//                if (item.title.uppercased().trimmingCharacters(in: .whitespaces) == someString.uppercased().trimmingCharacters(in: .whitespaces)) {
-//
-//                    break
-//                } else {
-//                    labelArray.append(item.title)
-//                    tracker = true
-//                    print("i did not break")
-//                }
-//
-//            }
-//            }
-//            else {
-//                labelArray.append(item.title)
-//            }
-//
-//
-            
-            
+        //print(item.userInfo)
+        //print(item.title)
         
-//        print("last index path = " + String(lastIndexPath))
-//        let arrayOfIndexPaths = Array(currentIndexPathArr[lastIndexPath...  ])
-//        lastRow = contactTableView.numberOfRows(inSection: 0)
-//        //let indexPath = IndexPath(row: lastRow, section: 0)
-//        print(arrayOfIndexPaths.count)
-//        contactTableView.reloadRows(at: arrayOfIndexPaths, with: .automatic)
+        //            if (labelArray.count != 0) {
+        //            for someString in labelArray {
+        //                if (item.title.uppercased().trimmingCharacters(in: .whitespaces) == someString.uppercased().trimmingCharacters(in: .whitespaces)) {
+        //
+        //                    break
+        //                } else {
+        //                    labelArray.append(item.title)
+        //                    tracker = true
+        //                    print("i did not break")
+        //                }
+        //
+        //            }
+        //            }
+        //            else {
+        //                labelArray.append(item.title)
+        //            }
+        //
+        //
         
-        return thisState
+        
+        
+        //        print("last index path = " + String(lastIndexPath))
+        //        let arrayOfIndexPaths = Array(currentIndexPathArr[lastIndexPath...  ])
+        //        lastRow = contactTableView.numberOfRows(inSection: 0)
+        //        //let indexPath = IndexPath(row: lastRow, section: 0)
+        //        print(arrayOfIndexPaths.count)
+        //        contactTableView.reloadRows(at: arrayOfIndexPaths, with: .automatic)
+        
     }
+    
 }
