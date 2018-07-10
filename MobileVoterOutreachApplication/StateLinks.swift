@@ -27,57 +27,57 @@ class State {
         // completes state initialization
         
         // array of state names
-        let stateNamesArray = ["Alabama",
-                               "Alaska",
-                               "Arizona",
-                               "Arkansas",
-                               "California",
-                               "Colorado",
-                               "Connecticut",
-                               "Delaware",
-                               "District of Columbia",
-                               "Florida",
-                               "Georgia",
-                               "Hawaii",
-                               "Idaho",
-                               "Illinois",
-                               "Indiana",
-                               "Iowa",
-                               "Kansas",
-                               "Kentucky",
-                               "Louisiana",
-                               "Maine",
-                               "Maryland",
-                               "Massachusetts",
-                               "Michigan",
-                               "Minnesota",
-                               "Mississippi",
-                               "Missouri",
-                               "Montana",
-                               "Nebraska",
-                               "Nevada",
-                               "New Hampshire",
-                               "New Jersey",
-                               "New Mexico",
-                               "New York",
-                               "North Carolina",
-                               "North Dakota",
-                               "Ohio",
-                               "Oklahoma",
-                               "Oregon",
-                               "Pennsylvania",
-                               "Rhode Island",
-                               "South Carolina",
-                               "South Dakota",
-                               "Tennessee",
-                               "Texas",
-                               "Utah",
-                               "Vermont",
-                               "Virginia",
-                               "Washington",
-                               "West Virginia",
-                               "Wisconsin",
-                               "Wyoming"]
+        var stateNamesArray = ["alabama",
+                               "alaska",
+                               "arizona",
+                               "arkansas",
+                               "california",
+                               "colorado",
+                               "connecticut",
+                               "delaware",
+                               "districtofcolumbia",
+                               "florida",
+                               "georgia",
+                               "hawaii",
+                               "idaho",
+                               "illinois",
+                               "indiana",
+                               "iowa",
+                               "kansas",
+                               "kentucky",
+                               "louisiana",
+                               "maine",
+                               "maryland",
+                               "massachusetts",
+                               "michigan",
+                               "minnesota",
+                               "mississippi",
+                               "missouri",
+                               "montana",
+                               "nebraska",
+                               "nevada",
+                               "newhampshire",
+                               "newjersey",
+                               "newmexico",
+                               "newyork",
+                               "northcarolina",
+                               "northdakota",
+                               "ohio",
+                               "oklahoma",
+                               "oregon",
+                               "pennsylvania",
+                               "rhodeisland",
+                               "southcarolina",
+                               "southdakota",
+                               "tennessee",
+                               "texas",
+                               "utah",
+                               "vermont",
+                               "virginia",
+                               "washington",
+                               "westvirginia",
+                               "wisconsin",
+                               "wyoming"]
         
         func makeState(name: String, canRegisterOnline: Bool, registerToVoteLink: String, checkRegistrationLink: String, canVoteEarly: Bool, requestMailInBallotLink: String, checkBallotLink: String, findPollingPlaceLink: String) -> State {
             // initializes a State's Bool values and hardcoded links
@@ -517,7 +517,22 @@ class State {
         }
         
         let stateDictionary = initStateDictionary(withKeys: stateNamesArray, andValues: statesArray)
-        var thisState = stateDictionary[stateName]!
+        
+        func removeSpecialCharacters (from entry: String) -> String {
+            let goodCharacters = Set("abcdefghijklmnopqrstuvwxyz")
+            return entry.lowercased().filter {goodCharacters.contains($0) }
+        }
+        
+        var thisState = State()
+        if stateNamesArray.contains(removeSpecialCharacters(from: stateName)) {
+            var thisState = stateDictionary[stateName]!
+        }
+        else {
+            /*func StateError() throws {
+             "invalid state"
+             }
+             try StateError()*/
+        }
         
         func getLink(to search: String, in state: String) -> String {
             // creates link to website

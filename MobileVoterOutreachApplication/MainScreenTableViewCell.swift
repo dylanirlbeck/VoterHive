@@ -41,7 +41,6 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-       
         
     }
     
@@ -208,6 +207,7 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
             }
             alertView.addButton("Reach Out") {
                 //put code for SMS Voting message here
+                self.viewController?.displayMessages(body: "Which state do you want to vote in?", number: (self.currentPerson.phone) )
             }
             alertView.addButton("Registered!") {
                 self.SecondCheck.setOn(true, animated: true)
@@ -218,7 +218,8 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
           
             let txt = alertView.addTextField("Enter this contact's state")
             
-            alertView.showSuccess("Registered?", subTitle: "This is the registered? alert.Note: You must have the Voting check activated for the Registered check to work")
+            
+            alertView.showSuccess("Registered?", subTitle: "Has firstName turned in their early ballot? Make sure they cast their ballot on time!")
         } else if (SecondCheck.on == false) {
             SecondCheck.setOn(true, animated: false)
             let appearance = SCLAlertView.SCLAppearance(
