@@ -14,7 +14,6 @@ import UIKit
 // requestMailInBallotLink -> requestMailInBallotLinkLink
 
 class State {
-    var name = String()
     var canRegisterOnline = Bool()
     var registerToVoteLink = String()
     var checkRegistrationLink = String()
@@ -22,9 +21,21 @@ class State {
     var requestMailInBallotLink = String()
     var checkBallotLink = String()
     var findPollingPlaceLink = String()
-    
-    func of(_ stateName: String) -> State {
+    var name = String()
+    init(of stateName: String) {
         // completes state initialization
+        
+        if (stateName == "") {
+            name = String()
+            canRegisterOnline = Bool()
+            registerToVoteLink = String()
+            checkRegistrationLink = String()
+            canVoteEarly = Bool()
+            requestMailInBallotLink = String()
+            checkBallotLink = String()
+            findPollingPlaceLink = String()
+            return
+        }
         
         // array of state names
         var stateNamesArray = ["alabama",
@@ -79,10 +90,9 @@ class State {
                                "wisconsin",
                                "wyoming"]
         
-        func makeState(name: String, canRegisterOnline: Bool, registerToVoteLink: String, checkRegistrationLink: String, canVoteEarly: Bool, requestMailInBallotLink: String, checkBallotLink: String, findPollingPlaceLink: String) -> State {
+        func makeState(name: String, canRegisterOnline: Bool, registerToVoteLink: String, checkRegistrationLink: String, canVoteEarly: Bool, requestMailInBallotLink: String, checkBallotLink: String, findPollingPlaceLink: String) -> State! {
             // initializes a State's Bool values and hardcoded links
-            let newState = State()
-            newState.name = name
+            let newState = State(of: "")
             newState.canRegisterOnline = canRegisterOnline
             newState.registerToVoteLink = registerToVoteLink
             newState.checkRegistrationLink = checkRegistrationLink
@@ -90,6 +100,7 @@ class State {
             newState.requestMailInBallotLink = requestMailInBallotLink
             newState.checkBallotLink = checkBallotLink
             newState.findPollingPlaceLink = findPollingPlaceLink
+            newState.name = name
             return newState
         }
         
@@ -507,32 +518,63 @@ class State {
         func initStateDictionary(withKeys: [String], andValues: [State]) -> Dictionary<String,State> {
             // initializes dictionary of states
             var stateDictionary = Dictionary<String,State>()
-            stateDictionary.reserveCapacity(51)
+            stateDictionary.reserveCapacity(statesArray.count)
             var index = 0
-            while index < 50 {
-                stateDictionary.updateValue(statesArray[index], forKey: stateNamesArray[index])
+            while index < statesArray.count {
+                stateDictionary.updateValue(statesArray[index]!, forKey: stateNamesArray[index])
                 index += 1
             }
             return stateDictionary
         }
         
-        let stateDictionary = initStateDictionary(withKeys: stateNamesArray, andValues: statesArray)
+        let stateDictionary = initStateDictionary(withKeys: stateNamesArray, andValues: statesArray as! [State])
         
-        func removeSpecialCharacters (from entry: String) -> String {
+        func removeSpecialCharacters(from entry: String) -> String {
             let goodCharacters = Set("abcdefghijklmnopqrstuvwxyz")
             return entry.lowercased().filter {goodCharacters.contains($0) }
         }
         
-        var thisState = State()
-        if stateNamesArray.contains(removeSpecialCharacters(from: stateName)) {
-            var thisState = stateDictionary[stateName]!
+        func levenshteinDistance(from aString: String, to bString: String) -> Int {
+            // calculates how similar two words are
+            // https://stackoverflow.com/questions/44102213/levenshtein-distance-in-swift3
+            
+            if aString == bString {
+                return 0
+            }
+            
+            let (t, s) = (aString, bString)
+            
+            let empty = Array<Int>(repeating:0, count: s.count)
+            var last = [Int](0...s.count)
+            
+            for (i, tLett) in t.enumerated() {
+                var cur = [i + 1] + empty
+                for (j, sLett) in s.enumerated() {
+                    cur[j + 1] = tLett == sLett ? last[j] : min(last[j], last[j + 1], cur[j])+1
+                }
+                last = cur
+            }
+            return last.last!
         }
-        else {
-            /*func StateError() throws {
-             "invalid state"
-             }
-             try StateError()*/
+        
+        func closestString(to myString: String, inArray stringArray: [String]) -> String {
+            let myString = removeSpecialCharacters(from: myString)
+            var levenshteinDistanceArray = [Int]()
+            var wordDistance = Int()
+            for name in stringArray {
+                wordDistance = levenshteinDistance(from: myString, to: name)
+                if wordDistance == 0 {
+                    return name
+                }
+                levenshteinDistanceArray.append(wordDistance)
+            }
+            let shortestDistance = levenshteinDistanceArray.min()
+            let indexOfClosestWord = levenshteinDistanceArray.index(of: shortestDistance!)
+            return stringArray[indexOfClosestWord!]
         }
+        
+        var stateKey = closestString(to: stateName, inArray: stateNamesArray)
+        var thisState = stateDictionary[stateKey]!
         
         func getLink(to search: String, in state: String) -> String {
             // creates link to website
@@ -544,22 +586,30 @@ class State {
             return link
         }
         
+        // initialize State values
+        name = thisState.name
+        canRegisterOnline = thisState.canRegisterOnline
+        registerToVoteLink = thisState.registerToVoteLink
         if thisState.registerToVoteLink == "" {
-            thisState.registerToVoteLink = getLink(to: "register to vote in", in: stateName)
+            registerToVoteLink = getLink(to: "register to vote in", in: stateName)
         }
+        checkRegistrationLink = thisState.checkRegistrationLink
         if thisState.checkRegistrationLink == "" {
-            thisState.checkRegistrationLink = getLink(to: "am i registered to vote in", in: stateName)
+            checkRegistrationLink = getLink(to: "am i registered to vote in", in: stateName)
         }
+        canVoteEarly = thisState.canVoteEarly
+        requestMailInBallotLink = thisState.requestMailInBallotLink
         if thisState.requestMailInBallotLink == "" {
-            thisState.requestMailInBallotLink = getLink(to: "request ballot", in: stateName)
+            requestMailInBallotLink = getLink(to: "request ballot", in: stateName)
         }
+        checkBallotLink = thisState.checkBallotLink
         if thisState.checkBallotLink == "" {
-            thisState.checkBallotLink = getLink(to: "where is my ballot", in: stateName)
+            checkBallotLink = getLink(to: "where is my ballot", in: stateName)
         }
+        findPollingPlaceLink = thisState.findPollingPlaceLink
         if thisState.findPollingPlaceLink == "" {
-            thisState.findPollingPlaceLink = getLink(to: "find my polling place", in: stateName)
+            findPollingPlaceLink = getLink(to: "find my polling place", in: stateName)
         }
-        
-        return thisState
+        return
     }
 }

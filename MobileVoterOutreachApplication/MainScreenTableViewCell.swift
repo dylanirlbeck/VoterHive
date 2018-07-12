@@ -71,7 +71,7 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
                 }
             }
             
-            alertView.showSuccess("Voted?", subTitle: "This is the voted? alert")
+            alertView.showSuccess("Voted?", subTitle: "Has \(self.currentPerson.name) turned in their early ballot? Make sure they cast their ballot on time!")
         } else if (ThirdCheck.on == false) {
             ThirdCheck.setOn(true, animated: false)
             let appearance = SCLAlertView.SCLAppearance(
@@ -107,7 +107,7 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
         
        
         // run a function
-        //SCLAlertView().showSuccess("Voting", subTitle: "Is this contact voting? If you have not done so, please click the 'Contact' button below to send a message. If you have heard back with a confirmation, please select Done")
+        //SCLAlertView().showSuccess("Voting", subTitle: "Is \(self.currentPerson.name) voting? If you have not done so, please click the 'Contact' button below to send a message. If you have heard back with a confirmation, please select Done")
         if (FirstCheck.on == true) {
         FirstCheck.setOn(false, animated: false)
         let appearance = SCLAlertView.SCLAppearance(
@@ -167,7 +167,7 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
             alertView.addButton("Erase") {
                 self.FirstCheck.setOn(false, animated: true)
             }
-            alertView.showSuccess("Voting?", subTitle: "Do you want to erase this contact's check mark?")
+            alertView.showSuccess("Voting?", subTitle: "Do you want to erase \(self.currentPerson.name)'s check mark?")
             print("User tried to delete voting check")
         }
         else {
@@ -216,8 +216,8 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
                 }
             }
           
-            let txt = alertView.addTextField("Enter this contact's state")
-            
+            let txt = alertView.addTextField("Enter this contact's state") // ERROR TYPE
+            // HOW DO I READ THEIR RESPONSE
             
             alertView.showSuccess("Registered?", subTitle: "Has firstName turned in their early ballot? Make sure they cast their ballot on time!")
         } else if (SecondCheck.on == false) {
