@@ -22,7 +22,7 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
     
     var counter: Int = 0
     
-    var lastIndex: Int = 5
+    var lastIndex: Int = 1
     
     var labelArray = [String]()
     
@@ -38,12 +38,13 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
     
     @IBOutlet weak var contactTableView: UITableView!
     
+   
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MainScreenTableViewCell
         while (counter < labelArray.count) {
-            print(labelArray[0])
             cell.nameField.text = labelArray[counter]
             for person in contactArray {
                 if (person.name.uppercased().trimmingCharacters(in: .whitespaces) == labelArray[counter].uppercased().trimmingCharacters(in: .whitespaces)) {
@@ -59,6 +60,23 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
         return (cell)
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle:   UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            //arrStudentName.remove(at: indexPath.row)
+            contactTableView.beginUpdates()
+            print(labelArray[indexPath.row])
+            labelArray.remove(at: indexPath.row)
+            contactTableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+            lastIndex -= 1
+            
+            contactTableView.endUpdates()
+
+        }
+    }
     
     
     
@@ -213,10 +231,11 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
     //User completed selection
     func swiftMultiSelect(didSelectItems items: [SwiftMultiSelectItem]) {
         
-        //        if (openingBoolean) {
-        //            lastIndex -= 3
-        //            openingBoolean = false
-        //        }
+        
+        if (openingBoolean) {
+                    lastIndex -= 1
+                    openingBoolean = false
+                }
         //        //print("you have been selected: \(items.count) items!")
         //
         //        lastIndex = items.count + lastIndex
@@ -238,7 +257,12 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
             labelArray.append(item.title)
         }
         counter = 0
+        lastIndex += items.count
+        if (lastIndex > 5) {
+            lastIndex = 5
+        }
         contactTableView.reloadData()
+        
         //print(item.userInfo)
         //print(item.title)
         

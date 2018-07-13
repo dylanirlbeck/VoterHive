@@ -146,9 +146,16 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
         alertView.addButton("Voting!") {
             self.FirstCheck.setOn(true, animated: true)
             var num = 0
+            
+            if (self.currentPerson.name == "VoterHive") {
+                return
+            }
+            
             for count in (self.viewController?.contactArray)! {
-                if (count.name == self.nameField.text) {
+                if (count.name.uppercased().trimmingCharacters(in: .whitespaces) == self.nameField.text?.uppercased().trimmingCharacters(in: .whitespaces)) {
                     self.viewController?.contactArray[num].checkMarks = 1
+                    print(self.viewController?.contactArray[num].checkMarks)
+                    print(self.viewController?.contactArray[num].name)
                 }
                 num += 1
             }
@@ -213,14 +220,29 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
                 //put code for SMS Voting message here
                  self.viewController?.displayMessages(body: "Which state do you want to vote in? Are you registered to vote in this state? You can register to vote here: registrationLink. You can check to see if you're registered here: checkRegistrationLink", number: (self.currentPerson.phone) )
             }
-            let txt = alertView.addTextField("Enter this contact's state")
+            let txt = alertView.addTextField("Enter \(self.currentPerson.name)'s state")
+            
             
             alertView.addButton("Registered!") {
+                var localBool = true
+                var num = 0
                 self.SecondCheck.setOn(true, animated: true)
+                
                 if (self.FirstCheck.on == false) {
                     self.SecondCheck.setOn(false, animated: true)
+                    localBool = false
+                }
+                if (localBool) {
+                for count in (self.viewController?.contactArray)! {
+                    if (count.name.uppercased().trimmingCharacters(in: .whitespaces) == self.nameField.text?.uppercased().trimmingCharacters(in: .whitespaces)) {
+                        self.viewController?.contactArray[num].checkMarks = 1
+                        print(self.viewController?.contactArray[num].checkMarks)
+                        print(self.viewController?.contactArray[num].name)
+                    }
+                    num += 1
                 }
                 print(txt.text)
+                }
             }
           
             

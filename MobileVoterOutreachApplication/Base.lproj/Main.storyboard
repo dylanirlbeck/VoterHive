@@ -239,8 +239,8 @@
                                                         <action selector="secondCheckClicked:" destination="5zH-mx-a8z" eventType="valueChanged" id="Tqs-4W-wkT"/>
                                                     </connections>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VoterHive" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5d-Z8-Ud4">
-                                                    <rect key="frame" x="139.5" y="3.5" width="100" height="21.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="VoterHive" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5d-Z8-Ud4">
+                                                    <rect key="frame" x="112" y="4" width="154" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -271,7 +271,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="MT6-Hm-kxb" secondAttribute="trailing" constant="132" id="5Ya-5l-5ke"/>
                                                 <constraint firstItem="MT6-Hm-kxb" firstAttribute="top" secondItem="z5d-Z8-Ud4" secondAttribute="bottom" constant="5" id="OZD-vR-AR5"/>
                                                 <constraint firstItem="MT6-Hm-kxb" firstAttribute="leading" secondItem="Mya-vM-or3" secondAttribute="leadingMargin" constant="143" id="UEw-NX-7c5"/>
-                                                <constraint firstAttribute="trailing" secondItem="z5d-Z8-Ud4" secondAttribute="trailing" constant="136.5" id="Vsd-hd-Pba"/>
+                                                <constraint firstAttribute="trailing" secondItem="z5d-Z8-Ud4" secondAttribute="trailing" constant="110" id="Vsd-hd-Pba"/>
                                                 <constraint firstItem="0MX-Sq-8Or" firstAttribute="leading" secondItem="OyU-Xg-fau" secondAttribute="trailing" constant="85" id="W47-zX-ZiG"/>
                                                 <constraint firstItem="MT6-Hm-kxb" firstAttribute="top" secondItem="Mya-vM-or3" secondAttribute="topMargin" constant="19" id="YL2-OM-tEd"/>
                                                 <constraint firstItem="OyU-Xg-fau" firstAttribute="top" secondItem="ArE-Zr-jpp" secondAttribute="bottom" constant="3" id="am0-mh-Q5k"/>
@@ -281,7 +281,7 @@
                                                 <constraint firstItem="lSh-Rw-V6t" firstAttribute="leading" secondItem="0MX-Sq-8Or" secondAttribute="trailing" constant="78" id="i6E-5h-iJz"/>
                                                 <constraint firstItem="0MX-Sq-8Or" firstAttribute="top" secondItem="MT6-Hm-kxb" secondAttribute="bottom" constant="3" id="mqs-0W-7Fe"/>
                                                 <constraint firstItem="lSh-Rw-V6t" firstAttribute="top" secondItem="yXC-OC-Hae" secondAttribute="bottom" constant="3" id="op0-Xb-x4M"/>
-                                                <constraint firstItem="z5d-Z8-Ud4" firstAttribute="leading" secondItem="Mya-vM-or3" secondAttribute="leading" constant="139.5" id="yni-9q-GrC"/>
+                                                <constraint firstItem="z5d-Z8-Ud4" firstAttribute="leading" secondItem="Mya-vM-or3" secondAttribute="leading" constant="112" id="yni-9q-GrC"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
