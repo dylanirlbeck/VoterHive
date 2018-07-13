@@ -12,15 +12,8 @@ struct personInfo {
     var name: String
     var phone: String
     var checkMarks: Int
+    var state: State
 }
-
-
-func removeSpecialCharacters (from entry: String) -> String {
-    let goodCharacters = Set("abcdefghijklmnopqrstuvwxyz")
-    return entry.lowercased().filter {goodCharacters.contains($0) }
-}
-
-
 
 func format(phoneNumber sourcePhoneNumber: String) -> String? {
     // Remove any character that is not a number
