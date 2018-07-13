@@ -227,13 +227,16 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
                 //put code for SMS Voting message here
                  self.viewController?.displayMessages(body: "Which state do you want to vote in? Are you registered to vote there?", number: (self.currentPerson.phone) )
             }
+            
             let txt = alertView.addTextField("Enter \(self.currentPerson.name)'s state")
+            self.currentPerson.state = State(of: txt.text)
+            
             alertView.addButton("Register \(self.currentPerson.name)") {
                 //put code for SMS Voting message hereif self.currentPerson.state.canRegisterOnline {
                     self.viewController?.displayMessages(body: "You can register to vote here: \(self.currentPerson.state.registerToVoteLink)", number: (self.currentPerson.phone) )
                 }
                 else {
-                    self.viewController?.displayMessages(body: "You can't register to vote online in \(self.currentPerson.state.name), but you should vote for somebody who'll change that. Get the process started by going here: /(self.currentPerson.state.registerToVoteLink)", number: (self.currentPerson.phone) )
+                    self.viewController?.displayMessages(body: "You can't register to vote online in \(self.currentPerson.state.name), but you should vote for somebody who'll change that. Get the process started by going here: \(self.currentPerson.state.registerToVoteLink)", number: (self.currentPerson.phone) )
                 }
             }
             alertView.addButton("Check Their Registration") {
