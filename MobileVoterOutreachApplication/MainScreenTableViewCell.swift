@@ -233,6 +233,7 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
             
             alertView.addButton("Register \(self.currentPerson.name)") {
                 //put code for SMS Voting message hereif self.currentPerson.state.canRegisterOnline {
+                if self.currentPerson.state.canRegisterOnline {
                     self.viewController?.displayMessages(body: "You can register to vote here: \(self.currentPerson.state.registerToVoteLink)", number: (self.currentPerson.phone) )
                 }
                 else {
