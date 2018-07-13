@@ -10,10 +10,8 @@ import Foundation
 
 import UIKit
 
-// registerToVoteLink -> registerToVoteLink
-// requestMailInBallotLink -> requestMailInBallotLinkLink
-
 class State {
+    // contains important voter information
     var canRegisterOnline = Bool()
     var registerToVoteLink = String()
     var checkRegistrationLink = String()
@@ -23,9 +21,10 @@ class State {
     var findPollingPlaceLink = String()
     var name = String()
     init(of stateName: String) {
-        // completes state initialization
+        // sets values of State struct       
         
         if (stateName == "") {
+            // creates empty dummy State           
             name = String()
             canRegisterOnline = Bool()
             registerToVoteLink = String()
@@ -105,7 +104,7 @@ class State {
         }
         
         
-        // array of state objects
+        // array of States
         let statesArray = [makeState(name: "Alabama",
                                      canRegisterOnline: true,
                                      registerToVoteLink: "",
@@ -526,27 +525,23 @@ class State {
             }
             return stateDictionary
         }
-        
         let stateDictionary = initStateDictionary(withKeys: stateNamesArray, andValues: statesArray as! [State])
         
         func removeSpecialCharacters(from entry: String) -> String {
+            // lowercases String and removes all characters that are not letters
             let goodCharacters = Set("abcdefghijklmnopqrstuvwxyz")
             return entry.lowercased().filter {goodCharacters.contains($0) }
         }
         
         func levenshteinDistance(from aString: String, to bString: String) -> Int {
             // calculates how similar two words are
-            // https://stackoverflow.com/questions/44102213/levenshtein-distance-in-swift3
-            
+            // https://stackoverflow.com/questions/44102213/levenshtein-distance-in-swift3         
             if aString == bString {
                 return 0
             }
-            
             let (t, s) = (aString, bString)
-            
             let empty = Array<Int>(repeating:0, count: s.count)
             var last = [Int](0...s.count)
-            
             for (i, tLett) in t.enumerated() {
                 var cur = [i + 1] + empty
                 for (j, sLett) in s.enumerated() {
@@ -558,6 +553,7 @@ class State {
         }
         
         func closestString(to myString: String, inArray stringArray: [String]) -> String {
+            // takes an array of Strings and returns the one that is most similar to a given string
             let myString = removeSpecialCharacters(from: myString)
             var levenshteinDistanceArray = [Int]()
             var wordDistance = Int()
@@ -573,11 +569,12 @@ class State {
             return stringArray[indexOfClosestWord!]
         }
         
+        // finds the correct State in the State Dictionary
         var stateKey = closestString(to: stateName, inArray: stateNamesArray)
         var thisState = stateDictionary[stateKey]!
         
         func getLink(to search: String, in state: String) -> String {
-            // creates link to website
+            // creates a link to theh first result of an I'm Feeling Lucky search on Google
             let space = "%20"
             let search = search.replacingOccurrences(of: " ", with: space) + space
             let govOnly = "site%3A.gov" + space
@@ -586,7 +583,7 @@ class State {
             return link
         }
         
-        // initialize State values
+        // finally sets State values
         name = thisState.name
         canRegisterOnline = thisState.canRegisterOnline
         registerToVoteLink = thisState.registerToVoteLink
