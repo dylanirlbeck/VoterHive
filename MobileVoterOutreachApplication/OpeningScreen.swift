@@ -19,6 +19,7 @@ class OpeningScreen: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(removeSpecialCharacters(from: "West Virginia"))
         //UserName.delegate = self
         Password.delegate = self
         UITextField.appearance().keyboardAppearance = .dark

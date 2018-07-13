@@ -64,6 +64,7 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
             }
             alertView.addButton("Reach Out") {
                 //put code for SMS Voting message here
+                self.viewController?.displayMessages(body: "You can check your early ballot status here: checkEarlyBallotLink. You can request your early ballot here: requestEarlyBallotLink. You can check to see if you're on the early voting list here: checkEarlyVotingListLink", number: (self.currentPerson.phone) )
             }
             alertView.addButton("Voted!") {
                 self.ThirdCheck.setOn(true, animated: true)
@@ -72,7 +73,7 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
                 }
             }
             
-            alertView.showSuccess("Voted?", subTitle: "This is the voted? alert")
+            alertView.showSuccess("Voted?", subTitle: "Has \(self.currentPerson.name) turned in their early ballot? Make sure they cast their ballot on time!")
         } else if (ThirdCheck.on == false) {
             ThirdCheck.setOn(true, animated: false)
             let appearance = SCLAlertView.SCLAppearance(
@@ -126,6 +127,9 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
         alertView.addButton("Reach Out") {
             print("First reach out clicked")
             var phoneNumber: String = ""
+            if (self.currentPerson.name == "VoterHive") {
+                return
+            }
             if ((self.viewController?.contactArray.count)! > 0) {
             for contact in (self.viewController?.contactArray)! {
                 var nameFieldString: String = self.nameField.text as! String
@@ -135,7 +139,7 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
                 }
             }
             }
-            self.viewController?.displayMessages(body: "Hey, \(self.currentPerson.name), I'm using this app VoterHive to see if my friends are voting Democratic for the big November midterms. Are you going to vote for Democrats?", number: (self.currentPerson.phone) )
+            self.viewController?.displayMessages(body: "Hey, \(self.currentPerson.name), I'm using this app VoterHive to see if my friends are voting Democratic for the upcoming November midterms. Are you going to vote for Democrats? If so, what state are you voting in?", number: (self.currentPerson.phone) )
                         //put code for SMS Voting message here
             
         }
@@ -208,17 +212,21 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
             }
             alertView.addButton("Reach Out") {
                 //put code for SMS Voting message here
+                 self.viewController?.displayMessages(body: "Which state do you want to vote in? Are you registered to vote in this state? You can register to vote here: registrationLink. You can check to see if you're registered here: checkRegistrationLink", number: (self.currentPerson.phone) )
             }
+            let txt = alertView.addTextField("Enter this contact's state")
+            
             alertView.addButton("Registered!") {
                 self.SecondCheck.setOn(true, animated: true)
                 if (self.FirstCheck.on == false) {
                     self.SecondCheck.setOn(false, animated: true)
                 }
+                print(txt.text)
             }
           
-            let txt = alertView.addTextField("Enter this contact's state")
             
-            alertView.showSuccess("Registered?", subTitle: "This is the registered? alert.Note: You must have the Voting check activated for the Registered check to work")
+            
+            alertView.showSuccess("Registered?", subTitle: "Ask \(self.currentPerson.name) if they're registered to vote in their state. If they are not registered, they can't vote!")
         } else if (SecondCheck.on == false) {
             SecondCheck.setOn(true, animated: false)
             let appearance = SCLAlertView.SCLAppearance(

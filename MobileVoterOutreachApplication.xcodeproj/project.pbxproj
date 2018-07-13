@@ -389,7 +389,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 19E0EF01D2BBC27905565308 /* Pods-MobileVoterOutreachApplication.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T6B9J22S49;
 				INFOPLIST_FILE = MobileVoterOutreachApplication/Info.plist;
@@ -409,7 +408,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A987A49A57046AC4DF4DE506 /* Pods-MobileVoterOutreachApplication.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T6B9J22S49;
 				INFOPLIST_FILE = MobileVoterOutreachApplication/Info.plist;
