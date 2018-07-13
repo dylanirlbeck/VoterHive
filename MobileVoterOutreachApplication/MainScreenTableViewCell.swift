@@ -41,7 +41,6 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-       
         
     }
     
@@ -109,7 +108,7 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
         
        
         // run a function
-        //SCLAlertView().showSuccess("Voting", subTitle: "Is this contact voting? If you have not done so, please click the 'Contact' button below to send a message. If you have heard back with a confirmation, please select Done")
+        //SCLAlertView().showSuccess("Voting", subTitle: "Is \(self.currentPerson.name) voting? If you have not done so, please click the 'Contact' button below to send a message. If you have heard back with a confirmation, please select Done")
         if (FirstCheck.on == true) {
         FirstCheck.setOn(false, animated: false)
         let appearance = SCLAlertView.SCLAppearance(
@@ -172,7 +171,7 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
             alertView.addButton("Erase") {
                 self.FirstCheck.setOn(false, animated: true)
             }
-            alertView.showSuccess("Voting?", subTitle: "Do you want to erase this contact's check mark?")
+            alertView.showSuccess("Voting?", subTitle: "Do you want to erase \(self.currentPerson.name)'s check mark?")
             print("User tried to delete voting check")
         }
         else {
