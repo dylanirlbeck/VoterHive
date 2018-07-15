@@ -36,7 +36,7 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
     
     weak var viewController : SecondOpeningScreen?
 
-    var currentPerson: personInfo = personInfo(name: "VoterHive", phone: "12344567891", checkMarks: 0)
+    var currentPerson: personInfo = personInfo(name: "VoterHive", phone: "12344567891", checkMarks: 0, state: nil)
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -63,7 +63,7 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
             }
             alertView.addButton("Reach Out") {
                 //put code for SMS Voting message here
-                if self.currentPerson.state.canVoteEarly {
+                if (self.currentPerson.state?.canVoteEarly)! {
                     self.viewController?.displayMessages(body: "Have you requested your early ballot?", number: (self.currentPerson.phone) )
                 }
                 else {
@@ -71,13 +71,13 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
                 }
             }
             alertView.addButton("Check their Mail-In Ballot") {
-                self.viewController?.displayMessages(body: "You can check your early ballot status here: \(self.currentPerson.state.checkMailInBallotLink)", number: (self.currentPerson.phone) )
+                self.viewController?.displayMessages(body: "You can check your early ballot status here: \(self.currentPerson.state?.checkBallotLink)", number: (self.currentPerson.phone) )
             }
             alertView.addButton("Find Their Polling Place") {
-                self.viewController?.displayMessages(body: "You may not be able to vote early in \(self.currentPerson.state.name), but you can find your polling place with this website and vote for someone who'll fix that: \(self.currentPerson.state.findPollingPlaceLink)", number: (self.currentPerson.phone) )
+                self.viewController?.displayMessages(body: "You may not be able to vote early in \(self.currentPerson.state?.name), but you can find your polling place with this website and vote for someone who'll fix that: \(self.currentPerson.state?.findPollingPlaceLink)", number: (self.currentPerson.phone) )
             }
             alertView.addButton("Get Their Mail-In Ballot") {
-                self.viewController?.displayMessages(body: "You can ask for your mail-in ballot here: \(self.currentPerson.state.requestMailInBallotLink)", number: (self.currentPerson.phone) )
+                self.viewController?.displayMessages(body: "You can ask for your mail-in ballot here: \(self.currentPerson.state?.requestMailInBallotLink)", number: (self.currentPerson.phone) )
             }
             alertView.addButton("Voted!") {
                 self.ThirdCheck.setOn(true, animated: true)
@@ -215,7 +215,7 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
     @IBAction func secondCheckClicked(_ sender: Any) {
       
         
-      
+        
         //this condition happens the first time someone clicks the check (automatically turns it on, so have to treat this case as if it was on and turn it off immediately to show alert)
         if (SecondCheck.on == true) {
             SecondCheck.setOn(false, animated: false)
@@ -231,25 +231,25 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
                 alertView.hideView()
             }
             alertView.addButton("Reach Out") {
+                
                 //put code for SMS Voting message here
                  self.viewController?.displayMessages(body: "Which state do you want to vote in? Are you registered to vote there?", number: (self.currentPerson.phone) )
             }
             let txt = alertView.addTextField("Enter \(self.currentPerson.name)'s state")
             
             
-            let txt = alertView.addTextField("Enter \(self.currentPerson.name)'s state")
-            self.currentPerson.state = State(of: txt.text)
+            //self.currentPerson.state = State(of: txt.text)
             
             alertView.addButton("Register \(self.currentPerson.name)") {
                 //put code for SMS Voting message hereif self.currentPerson.state.canRegisterOnline {
-                    self.viewController?.displayMessages(body: "You can register to vote here: \(self.currentPerson.state.registerToVoteLink)", number: (self.currentPerson.phone) )
+                self.viewController?.displayMessages(body: "You can register to vote here: \(self.currentPerson.state?.registerToVoteLink)", number: (self.currentPerson.phone) )
                 }
-                else {
-                    self.viewController?.displayMessages(body: "You can't register to vote online in \(self.currentPerson.state.name), but you should vote for somebody who'll change that. Get the process started by going here: \(self.currentPerson.state.registerToVoteLink)", number: (self.currentPerson.phone) )
-                }
-            }
+//                else {
+//                    self.viewController?.displayMessages(body: "You can't register to vote online in \(self.currentPerson.state.name), but you should vote for somebody who'll change that. Get the process started by going here: \(self.currentPerson.state.registerToVoteLink)", number: (self.currentPerson.phone) )
+//                }
+            
             alertView.addButton("Check Their Registration") {
-                self.viewController?.displayMessages(body: "Go here to see if you're registered to vote: \(self.currentPerson.state.checkRegistrationLink)", number: (self.currentPerson.phone) )
+                self.viewController?.displayMessages(body: "Go here to see if you're registered to vote: \(self.currentPerson.state?.checkRegistrationLink)", number: (self.currentPerson.phone) )
             }
             alertView.addButton("Registered!") {
                 var localBool = true

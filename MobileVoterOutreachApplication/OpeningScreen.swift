@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import Firebase
+import FirebaseAuth
 
 class OpeningScreen: UIViewController, UITextFieldDelegate {
     
@@ -19,8 +20,9 @@ class OpeningScreen: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(removeSpecialCharacters(from: "West Virginia"))
+        //print(removeSpecialCharacters(from: "West Virginia"))
         //UserName.delegate = self
+        
         Password.delegate = self
         UITextField.appearance().keyboardAppearance = .dark
         self.hideKeyboard()
@@ -29,7 +31,61 @@ class OpeningScreen: UIViewController, UITextFieldDelegate {
         
         // Do any additional setup after loading the view, typically from a nib.
     }
+    @IBAction func showRegistration(_ sender: Any) {
+        
+     
+        
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sbPopUpID") as! PopUpViewController
+        
+//        self.addChildViewController(popOverVC)
+//        popOverVC.view.frame = self.view.frame
+//        self.view.addSubview(popOverVC.view)
+        
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        transition.type = kCATransitionReveal
+        transition.subtype = kCATransitionFromTop
+        view.window!.layer.add(transition, forKey: kCATransition)
+        self.present(popOverVC, animated: false, completion: nil)
+        //popOverVC.didMove(toParentViewController: self)
+        
+        
+    }
     
+    @IBAction func action(_ sender: UIButton) {
+        
+        if UserName.text != "" && Password.text != ""
+        {
+            Auth.auth().signIn(withEmail: UserName.text!, password: Password.text!, completion: { (user, error) in
+                if user != nil {
+                    //Sign in successful
+                    let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "homeScreen") as! PopUpViewController
+                    let transition = CATransition()
+                    transition.duration = 0.5
+                    transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                    transition.type = kCATransitionReveal
+                    transition.subtype = kCATransitionFromLeft
+                    self.view.window!.layer.add(transition, forKey: kCATransition)
+                    self.present(popOverVC, animated: false, completion: nil)
+                } else
+                {
+                    if let myError = error?.localizedDescription
+                    {
+                        print(myError)
+                    } else
+                    {
+                        print("ERROR")
+                    }
+                }
+            })
+            
+    
+    
+    
+    
+        }
+    }
    
     
     override func didReceiveMemoryWarning() {

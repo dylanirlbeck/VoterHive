@@ -12,7 +12,7 @@ struct personInfo {
     var name: String
     var phone: String
     var checkMarks: Int
-    var state: State
+    var state: State?
 }
 
 func format(phoneNumber sourcePhoneNumber: String) -> String? {

@@ -10,4 +10,6 @@ target 'MobileVoterOutreachApplication' do
   pod 'BEMCheckBox'
   pod 'TextFieldEffects'
   pod 'SCLAlertView'
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
 end

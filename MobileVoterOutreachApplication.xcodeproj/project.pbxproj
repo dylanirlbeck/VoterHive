@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		05DFEE673A22E6B45E50ABB3 /* Pods_MobileVoterOutreachApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64199BD19DD1D8F977D11035 /* Pods_MobileVoterOutreachApplication.framework */; };
 		6740542A20F298290002A711 /* StateLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6740542920F298290002A711 /* StateLinks.swift */; };
+		7C0BEB5520FA7976001721C4 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0BEB5420FA7976001721C4 /* PopUpViewController.swift */; };
 		7C41551120E296F1003E13C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C41551020E296F1003E13C2 /* AppDelegate.swift */; };
 		7C41551620E296F1003E13C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C41551420E296F1003E13C2 /* Main.storyboard */; };
 		7C41551820E296F3003E13C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C41551720E296F3003E13C2 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 		7CC06F2C20E682940006988A /* img_401900.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CC06F2B20E682940006988A /* img_401900.png */; };
 		7CC06F3420E685320006988A /* Icons8-Ios7-User-Interface-Password-2.ico in Resources */ = {isa = PBXBuildFile; fileRef = 7CC06F3320E685320006988A /* Icons8-Ios7-User-Interface-Password-2.ico */; };
 		7CC06F3620E68B450006988A /* SecondOpeningScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC06F3520E68B450006988A /* SecondOpeningScreen.swift */; };
+		7CDBF0DD20FA6E8B00529F9D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CDBF0DC20FA6E8B00529F9D /* GoogleService-Info.plist */; };
 		7CF2929B20F4013500AAEB6E /* globalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF2929A20F4013500AAEB6E /* globalFunctions.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,7 @@
 		19E0EF01D2BBC27905565308 /* Pods-MobileVoterOutreachApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileVoterOutreachApplication.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MobileVoterOutreachApplication/Pods-MobileVoterOutreachApplication.debug.xcconfig"; sourceTree = "<group>"; };
 		64199BD19DD1D8F977D11035 /* Pods_MobileVoterOutreachApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileVoterOutreachApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6740542920F298290002A711 /* StateLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateLinks.swift; sourceTree = "<group>"; };
+		7C0BEB5420FA7976001721C4 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		7C41550D20E296F1003E13C2 /* MobileVoterOutreachApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileVoterOutreachApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C41551020E296F1003E13C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C41551520E296F1003E13C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -47,6 +50,7 @@
 		7CC06F2B20E682940006988A /* img_401900.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = img_401900.png; path = ../../img_401900.png; sourceTree = "<group>"; };
 		7CC06F3320E685320006988A /* Icons8-Ios7-User-Interface-Password-2.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; name = "Icons8-Ios7-User-Interface-Password-2.ico"; path = "../../Icons8-Ios7-User-Interface-Password-2.ico"; sourceTree = "<group>"; };
 		7CC06F3520E68B450006988A /* SecondOpeningScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOpeningScreen.swift; sourceTree = "<group>"; };
+		7CDBF0DC20FA6E8B00529F9D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7CF2929A20F4013500AAEB6E /* globalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = globalFunctions.swift; sourceTree = "<group>"; };
 		A987A49A57046AC4DF4DE506 /* Pods-MobileVoterOutreachApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileVoterOutreachApplication.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobileVoterOutreachApplication/Pods-MobileVoterOutreachApplication.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +104,7 @@
 				7C41551720E296F3003E13C2 /* Assets.xcassets */,
 				7C41551C20E296F3003E13C2 /* Info.plist */,
 				7CC06F1D20E2D6D00006988A /* PageViewController.swift */,
+				7CDBF0DC20FA6E8B00529F9D /* GoogleService-Info.plist */,
 				7CC06F1F20E572DC0006988A /* TextFieldExtension.swift */,
 				7CC06F2520E57FE30006988A /* RoundButton.swift */,
 				7CC06F2720E581E20006988A /* HideKeyBoardExtension.swift */,
@@ -111,6 +116,7 @@
 				7C74B7E820EC219D00CA78E5 /* BEMCheckBoxGroup.h */,
 				7C74B7E620EC20DF00CA78E5 /* CheckMarkHeader.h */,
 				7CF2929A20F4013500AAEB6E /* globalFunctions.swift */,
+				7C0BEB5420FA7976001721C4 /* PopUpViewController.swift */,
 			);
 			path = MobileVoterOutreachApplication;
 			sourceTree = "<group>";
@@ -186,6 +192,7 @@
 			files = (
 				7C41551820E296F3003E13C2 /* Assets.xcassets in Resources */,
 				7CC06F3420E685320006988A /* Icons8-Ios7-User-Interface-Password-2.ico in Resources */,
+				7CDBF0DD20FA6E8B00529F9D /* GoogleService-Info.plist in Resources */,
 				7CC06F2C20E682940006988A /* img_401900.png in Resources */,
 				7C41551620E296F1003E13C2 /* Main.storyboard in Resources */,
 			);
@@ -220,16 +227,22 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MobileVoterOutreachApplication/Pods-MobileVoterOutreachApplication-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMultiSelect/SwiftMultiSelect.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMultiSelect.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -250,6 +263,7 @@
 				7CC06F1E20E2D6D00006988A /* PageViewController.swift in Sources */,
 				7CC06F2620E57FE30006988A /* RoundButton.swift in Sources */,
 				7C74B7E120EBDF4800CA78E5 /* MainScreenTableViewCell.swift in Sources */,
+				7C0BEB5520FA7976001721C4 /* PopUpViewController.swift in Sources */,
 				7CC06F2020E572DC0006988A /* TextFieldExtension.swift in Sources */,
 				7CC06F2220E573170006988A /* OpeningScreen.swift in Sources */,
 				7C41551120E296F1003E13C2 /* AppDelegate.swift in Sources */,

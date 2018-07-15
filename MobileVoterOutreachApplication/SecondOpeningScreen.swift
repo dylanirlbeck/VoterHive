@@ -143,7 +143,7 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
                     number += 1
                     phoneNumber = (phnCtr.value as! CNPhoneNumber).value(forKey: "digits") as! String
                     
-                    let currentPerson = personInfo(name: contact.givenName, phone: phoneNumber, checkMarks: 0)
+                    let currentPerson = personInfo(name: contact.givenName, phone: phoneNumber, checkMarks: 0, state: nil)
                     self.contactArray.append(currentPerson)
                     
                 }

@@ -51,7 +51,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="1Yj-8M-9cc" kind="show" id="lJs-lf-e38"/>
+                                    <action selector="action:" destination="jSO-1F-9at" eventType="touchUpInside" id="opc-mS-34y"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password     " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m3q-qg-WBp" customClass="IsaoTextField" customModule="TextFieldEffects">
@@ -86,7 +86,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="KGk-Pz-jbH" kind="show" id="8mL-M2-WVo"/>
+                                    <action selector="showRegistration:" destination="jSO-1F-9at" eventType="touchUpInside" id="BGg-vw-0s6"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Where Democrats Spread The Buzz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2l8-wF-wVm">
@@ -118,6 +118,7 @@
                     </view>
                     <connections>
                         <outlet property="Password" destination="m3q-qg-WBp" id="j4h-iG-fvx"/>
+                        <outlet property="UserName" destination="m6f-jh-9Dq" id="Zzm-di-evb"/>
                         <outlet property="loginButton" destination="cyp-1E-cAc" id="b40-0z-eeZ"/>
                     </connections>
                 </viewController>
@@ -128,7 +129,7 @@
         <!--Second Opening Screen-->
         <scene sceneID="aOY-fy-3MI">
             <objects>
-                <viewController wantsFullScreenLayout="YES" id="1Yj-8M-9cc" customClass="SecondOpeningScreen" customModule="MobileVoterOutreachApplication" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeScreen" wantsFullScreenLayout="YES" id="1Yj-8M-9cc" customClass="SecondOpeningScreen" customModule="MobileVoterOutreachApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lEc-ut-1XI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -326,15 +327,15 @@
             </objects>
             <point key="canvasLocation" x="508" y="475.41229385307349"/>
         </scene>
-        <!--View Controller-->
+        <!--Pop Up View Controller-->
         <scene sceneID="EZj-To-fVx">
             <objects>
-                <viewController id="KGk-Pz-jbH" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sbPopUpID" id="KGk-Pz-jbH" customClass="PopUpViewController" customModule="MobileVoterOutreachApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="621-bB-anG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="luY-Iy-ojZ" customClass="IsaoTextField" customModule="TextFieldEffects">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="luY-Iy-ojZ" customClass="IsaoTextField" customModule="TextFieldEffects">
                                 <rect key="frame" x="52" y="185" width="270" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -367,23 +368,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LFW-Sq-Wxs" customClass="IsaoTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="52" y="305" width="270" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
-                                        <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ein-Ph-rBj" customClass="IsaoTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="52" y="365" width="270" height="47"/>
+                                <rect key="frame" x="52" y="298" width="270" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -399,7 +384,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="83l-Sz-wr6" customClass="RoundButton" customModule="MobileVoterOutreachApplication" customModuleProvider="target">
-                                <rect key="frame" x="44" y="435" width="288" height="40"/>
+                                <rect key="frame" x="44" y="373" width="288" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="19"/>
@@ -415,7 +400,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="1Yj-8M-9cc" kind="show" id="u6k-yg-q47"/>
+                                    <action selector="signUpButtonClick:" destination="KGk-Pz-jbH" eventType="touchUpInside" id="naO-r4-fzf"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VoterHive" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NX3-jw-FGl">
@@ -426,22 +411,30 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wh-5t-vKW">
-                                <rect key="frame" x="-49" y="21" width="199" height="40"/>
+                                <rect key="frame" x="0.0" y="14" width="90" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                <state key="normal" title="Back">
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                <state key="normal" title="✕">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="goBack:" destination="KGk-Pz-jbH" eventType="touchUpInside" id="PH9-8R-3vH"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.23392206430000001" green="0.53150820730000004" blue="0.74512535329999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="af0-YI-FCP"/>
                     </view>
+                    <connections>
+                        <outlet property="confirmPassField" destination="LFW-Sq-Wxs" id="Gej-gp-JZm"/>
+                        <outlet property="emailField" destination="luY-Iy-ojZ" id="Ewb-hn-k6i"/>
+                        <outlet property="firstPassField" destination="PWk-xy-E7b" id="49Z-2d-TV6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dtu-Qy-chp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1357" y="489"/>
+            <point key="canvasLocation" x="1356" y="488.90554722638683"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="p57-Iv-y9J">
@@ -459,7 +452,4 @@
             <point key="canvasLocation" x="514" y="1177"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="lJs-lf-e38"/>
-    </inferredMetricsTieBreakers>
 </document>
