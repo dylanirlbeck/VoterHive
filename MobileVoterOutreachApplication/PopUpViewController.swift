@@ -10,6 +10,7 @@ import UIKit
 import TextFieldEffects
 import Firebase
 import SCLAlertView
+import CoreData
 
 class PopUpViewController: UIViewController {
 
@@ -34,7 +35,12 @@ class PopUpViewController: UIViewController {
                 transition.duration = 0.5
                 transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
                 transition.type = kCATransitionReveal
-                transition.subtype = kCATransitionFromLeft
+                transition.subtype = kCATransitionFromRight
+                let person = Loginformation(context: PersistenceService.context)
+                person.userEmail = self.emailField.text!
+                person.userPass = self.confirmPassField.text!
+                print("added person to core data and firebase")
+                PersistenceService.saveContext()
                 self.view.window!.layer.add(transition, forKey: kCATransition)
                 self.present(popOverVC, animated: false, completion: nil)
             } else
@@ -42,6 +48,8 @@ class PopUpViewController: UIViewController {
                 if let myError = error?.localizedDescription
                 {
                     print(myError)
+                    let alert = SCLAlertView()
+                    alert.showError("Error", subTitle: (error?.localizedDescription)!)
                 } else
                 {
                     print("ERROR")
@@ -68,12 +76,21 @@ class PopUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hideKeyboard()
+        
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool // called when 'return' key pressed. return NO to ignore.
+    {
+        textField.resignFirstResponder()
+        return true;
+        
     }
     
 

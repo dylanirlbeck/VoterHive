@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import SCLAlertView
+import CoreData
 
 class OpeningScreen: UIViewController, UITextFieldDelegate {
     
@@ -22,6 +24,45 @@ class OpeningScreen: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         //print(removeSpecialCharacters(from: "West Virginia"))
         //UserName.delegate = self
+        
+        //check to see if the user's login information is stored, if so take straight back to app
+        let aRequest: NSFetchRequest<Loginformation> = Loginformation.fetchRequest()
+        
+        do {
+            var userName: String = ""
+            var passWord: String = ""
+            let loginArrayCore = try PersistenceService.context.fetch(aRequest)
+            if (loginArrayCore.count > 0) {
+                userName = loginArrayCore[0].userEmail!
+                passWord = loginArrayCore[0].userPass!
+                Auth.auth().signIn(withEmail: userName, password: passWord, completion: { (user, error) in
+                    if user != nil {
+                        //Sign in successful
+                        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "homeScreen") as! SecondOpeningScreen
+                        let transition = CATransition()
+                        transition.duration = 0.5
+                        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                        transition.type = kCATransitionReveal
+                        transition.subtype = kCATransitionFromRight
+                        self.view.window!.layer.add(transition, forKey: kCATransition)
+                        self.present(popOverVC, animated: false, completion: nil)
+                    } else
+                    {
+                        if let myError = error?.localizedDescription
+                        {
+                            print(myError)
+                            let alert = SCLAlertView()
+                            alert.showError("Error", subTitle: (error?.localizedDescription)!)
+                        } else
+                        {
+                            print("ERROR")
+                        }
+                    }
+                })
+            }
+            
+            
+        } catch {}
         
         Password.delegate = self
         UITextField.appearance().keyboardAppearance = .dark
@@ -60,12 +101,13 @@ class OpeningScreen: UIViewController, UITextFieldDelegate {
             Auth.auth().signIn(withEmail: UserName.text!, password: Password.text!, completion: { (user, error) in
                 if user != nil {
                     //Sign in successful
-                    let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "homeScreen") as! PopUpViewController
+                    let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "homeScreen") as! SecondOpeningScreen
                     let transition = CATransition()
                     transition.duration = 0.5
                     transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
                     transition.type = kCATransitionReveal
-                    transition.subtype = kCATransitionFromLeft
+                    transition.subtype = kCATransitionFromRight
+                   
                     self.view.window!.layer.add(transition, forKey: kCATransition)
                     self.present(popOverVC, animated: false, completion: nil)
                 } else
@@ -73,6 +115,8 @@ class OpeningScreen: UIViewController, UITextFieldDelegate {
                     if let myError = error?.localizedDescription
                     {
                         print(myError)
+                        let alert = SCLAlertView()
+                        alert.showError("Error", subTitle: (error?.localizedDescription)!)
                     } else
                     {
                         print("ERROR")

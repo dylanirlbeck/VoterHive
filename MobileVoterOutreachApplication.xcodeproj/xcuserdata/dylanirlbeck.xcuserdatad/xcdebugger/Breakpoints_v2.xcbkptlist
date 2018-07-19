@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MobileVoterOutreachApplication/OpeningScreen.swift"
-            timestampString = "553357993.947099"
+            timestampString = "553729288.970964"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
             landmarkName = "makeBottomBorder(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MobileVoterOutreachApplication/OpeningScreen.swift"
-            timestampString = "553357993.947314"
+            timestampString = "553729288.971004"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "makeBottomBorder(_:)"
             landmarkType = "7">
          </BreakpointContent>
