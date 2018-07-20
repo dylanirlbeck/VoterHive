@@ -73,7 +73,8 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
             }
             alertView.addButton("Reach Out") {
                 //put code for SMS Voting message here
-                if (self.currentPerson?.state == "") {
+                let yourState = (State(of: (self.currentPerson?.state)!)
+                if  yourState.canRegisterOnline {
                     self.viewController?.displayMessages(body: "Have you requested your early ballot?", number: (self.currentPerson?.phone)! )
                 }
                 else {
@@ -312,12 +313,13 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
                     }
                 //put code for SMS Voting message hereif self.currentPerson.state.canRegisterOnline {
                 
-                
-                self.viewController?.displayMessages(body: "You can register to vote here: \(State(of: (self.currentPerson?.state)!).registerToVoteLink)", number: (self.currentPerson?.phone)! )
+                let yourState = (State(of: (self.currentPerson?.state)!)
+                if  yourState.canRegisterOnline {
+                self.viewController?.displayMessages(body: "You can register to vote here: \yourState.registerToVoteLink)", number: (self.currentPerson?.phone)! )
                 }
-//                else {
-//                    self.viewController?.displayMessages(body: "You can't register to vote online in \(self.currentPerson.state.name), but you should vote for somebody who'll change that. Get the process started by going here: \(self.currentPerson.state.registerToVoteLink)", number: (self.currentPerson.phone) )
-//                }
+                                 else {
+                                     self.viewController?.displayMessages(body: "You can't register to vote online in \(yourState.name), but you should vote for somebody who'll change that. Get the process started by going here: \(self.currentPerson.state.registerToVoteLink)", number: (self.currentPerson.phone) )
+                                 }
             
             alertView.addButton("Check Their Registration") {
                 if (txt.text == "") {
