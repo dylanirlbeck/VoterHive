@@ -9,9 +9,11 @@ import BEMCheckBox
 import MessageUI
 import ContactsUI
 import CoreData
-
+import RevealingSplashView
 
 class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableViewDelegate, UITableViewDataSource, MFMessageComposeViewControllerDelegate {
+   
+    
     
     
     
@@ -76,8 +78,17 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MainScreenTableViewCell
         while (counter < labelArray.count) {
             cell.nameField.text = labelArray[counter].someName
+            print(labelArray[counter].someName! + "SOME NAME")
             for person in theCoreDataContactArray {
-                if ((person.name?.uppercased().trimmingCharacters(in: .whitespaces))! == labelArray[counter].someName?.uppercased().trimmingCharacters(in: .whitespaces)) {
+                print(person.firstName)
+                print(person.middleName)
+                print(person.lastName
+                )
+                var aString = person.firstName! + person.middleName! + person.lastName!
+                print(aString + "THIS IS ASTRING")
+                
+                if (aString.trimmingCharacters(in: .whitespacesAndNewlines) == labelArray[counter].someName?.trimmingCharacters(in: .whitespacesAndNewlines)) {
+                    print("INSIDE HEREEE")
                     cell.currentPerson = person
                     if (person.checks == 1) {
                         cell.FirstCheck.setOn(true, animated: true)
@@ -214,12 +225,12 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
 //
         //grab the current core data contact array
         let contactArrayRequest: NSFetchRequest<ContactArray> = ContactArray.fetchRequest()
-        
+        print("we are in contactArrayRequest")
         do {
             
             let contactArrayCore = try PersistenceService.context.fetch(contactArrayRequest)
             currentCoreArray = contactArrayCore
-            
+            print(currentCoreArray?.count)
             
             
         } catch {}
@@ -238,8 +249,6 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
             try store.enumerateContacts(with: fetchRequest, usingBlock: { (contact, stop) -> Void in
                 
                 let phoneNumbers = contact.phoneNumbers
-                //if next condition passes, the user's contacts have changed, we must change core data
-                checkLocalCount = phoneNumbers.count
                 
                 var boolToCheckIfSimilar = true
                 
@@ -251,25 +260,46 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
                     
                    
                 }
-                
+               
                 for aContact in currentCoreArray! {
-
-                    if (aContact.name?.uppercased().trimmingCharacters(in: .whitespaces) == contact.givenName.uppercased().trimmingCharacters(in: .whitespaces)) {
-
+//                    let aString: String = aContact.firstName! + aContact.middleName! + aContact.lastName!
+//                    print(aString + " this is a string")
+                
+                    if (aContact.firstName! == contact.givenName && aContact.middleName! == contact.middleName && aContact.lastName! == contact.familyName) {
+                        if (aContact.phone != phoneNumber) {
+                            aContact.phone = phoneNumber
+                            print("INSIDE PHONE IF STATEMENT")
+                        }
                         //means our core data contact array already has a contact stored, this is for adding new contacts
                         boolToCheckIfSimilar = false
                     } else {
                         //else, add the contact into our core data
+                        if (aContact.firstName == "John") {
+                            print(aContact.firstName)
+
+                        }
+                        
                     }
                 }
                 
+                //add in a function to check for inconsistent contacts
+                
                 if (boolToCheckIfSimilar) {
+                    print("INSIDE")
                     let person = ContactArray(context: PersistenceService.context)
-                    person.name = contact.givenName
+                    person.firstName = contact.givenName
+                    if (contact.familyName != nil) {
+                    person.lastName = contact.familyName
+                    } else {
+                        person.lastName = ""
+                    }
+                    if (contact.middleName != nil) {
+                    person.middleName = " " + contact.middleName
+                    } else {
+                        person.middleName = ""
+                    }
                     person.checks = Int16(0)
                     person.phone = phoneNumber
-                    print(person.name)
-                    print(person.phone)
                     person.state = ""
                     PersistenceService.saveContext()
                     //self.anArray.append(person)
@@ -288,21 +318,24 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
 //        print(anArray.count)
 //        print(anArray[0].name)
         
-        let thisRequest: NSFetchRequest<ContactArray> = ContactArray.fetchRequest()
+//        let thisRequest: NSFetchRequest<ContactArray> = ContactArray.fetchRequest()
+//
+//                 do {
+//        //
+//                    let theFinalArr = try PersistenceService.context.fetch(thisRequest)
+//                    currentCoreArray = theFinalArr
+//                    print(" this request count:  \(currentCoreArray?.count)")
+//                    print((currentCoreArray?[0].firstName)! + " this request element")
+//        //
+//                } catch {}
+
         
-                 do {
-        //
-                    let theFinalArr = try PersistenceService.context.fetch(thisRequest)
-                    currentCoreArray = theFinalArr
-        //            people[0].shouldLoad = false
-        //            people[0].contactCount = checkLocalCount
-        //
-        //
-                } catch {}
-       
-        print(String(currentCoreArray!.count) + "this is the end of the contacts function")
         self.theCoreDataContactArray = currentCoreArray!
-        
+        print(self.theCoreDataContactArray.count)
+        for name in self.theCoreDataContactArray {
+            print(name.firstName)
+            print(name.lastName)
+        }
         
     }
 
@@ -313,13 +346,25 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
     @IBAction func buttonAction(_ sender: Any) {
         SwiftMultiSelect.Show(to: self)
     }
+    
+    
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        let someState: State = State(of: "Illinois")
-        print(someState.name)
-        print(someState.checkRegistrationLink)
+//        
+        let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "Icon-180.png")!,iconInitialSize: CGSize(width: 120, height: 120), backgroundColor: UIColor(red: 255, green: 255, blue: 255, alpha: 1))
+        
+                //Adds the revealing splash view as a sub view
+        self.view.addSubview(revealingSplashView)
+        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { (timer) in
+            // do stuff 42 seconds later
+             revealingSplashView.playWoobleAnimation()
+        }
+
+       
+        
        
         getContacts()
 //        print(anArray[0].name)
@@ -337,7 +382,7 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
         
         
 //////////        THIS IS FOR DELETING CORE DATA
-//        let fetchRequest: NSFetchRequest<TableDisplay> = TableDisplay.fetchRequest()
+//        let fetchRequest: NSFetchRequest<ContactArray> = ContactArray.fetchRequest()
 //
 //        do {
 //
@@ -354,11 +399,28 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
 //
 //
 //        } catch {}
+////
+//        let newRequest: NSFetchRequest<TableDisplay> = TableDisplay.fetchRequest()
 //
-    print(theCoreDataContactArray.count)
-    print(theCoreDataContactArray[0].name)
-    print(theCoreDataContactArray[0].phone)
-    }
+//        do {
+//
+//            let people = try PersistenceService.context.fetch(newRequest)
+//
+//            for x in people {
+//                let x:NSManagedObject = x as! NSManagedObject
+//                PersistenceService.context.delete(x)
+//            }
+//            //print(people.count)
+//            PersistenceService.saveContext()
+//            PersistenceService.context.refreshAllObjects()
+//
+//
+//
+//        } catch {}
+//
+//
+//
+   }
     
     //MARK: - SwiftMultiSelectDelegate
     
@@ -409,7 +471,7 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
             let person = TableDisplay(context: PersistenceService.context)
             person.someName = item.title
             count -= 1
-            print("added person to table display")
+            print("\(item.title) added to table display")
         }
         PersistenceService.saveContext()
         PersistenceService.context.refreshAllObjects()
@@ -423,4 +485,5 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
     }
 }
     
+
 

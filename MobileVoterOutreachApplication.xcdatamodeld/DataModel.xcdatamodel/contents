@@ -2,7 +2,9 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17D47" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="ContactArray" representedClassName="ContactArray" syncable="YES">
         <attribute name="checks" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="middleName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
@@ -14,8 +16,8 @@
         <attribute name="someName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ContactArray" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="TableDisplay" positionX="-36" positionY="36" width="128" height="60"/>
+        <element name="ContactArray" positionX="-63" positionY="-18" width="128" height="135"/>
         <element name="Loginformation" positionX="0" positionY="54" width="128" height="75"/>
+        <element name="TableDisplay" positionX="-36" positionY="36" width="128" height="60"/>
     </elements>
 </model>

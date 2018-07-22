@@ -10,6 +10,7 @@
 		05DFEE673A22E6B45E50ABB3 /* Pods_MobileVoterOutreachApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64199BD19DD1D8F977D11035 /* Pods_MobileVoterOutreachApplication.framework */; };
 		6740542A20F298290002A711 /* StateLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6740542920F298290002A711 /* StateLinks.swift */; };
 		7C0BEB5520FA7976001721C4 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0BEB5420FA7976001721C4 /* PopUpViewController.swift */; };
+		7C1D3B34210278A30006C348 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C1D3B33210278A30006C348 /* Launch Screen.storyboard */; };
 		7C41551120E296F1003E13C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C41551020E296F1003E13C2 /* AppDelegate.swift */; };
 		7C41551620E296F1003E13C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C41551420E296F1003E13C2 /* Main.storyboard */; };
 		7C41551820E296F3003E13C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C41551720E296F3003E13C2 /* Assets.xcassets */; };
@@ -23,6 +24,9 @@
 		7C56752820FE517800D03216 /* TableDisplay+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C56752620FE517800D03216 /* TableDisplay+CoreDataProperties.swift */; };
 		7C56752B2100067E00D03216 /* Loginformation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5675292100067E00D03216 /* Loginformation+CoreDataClass.swift */; };
 		7C56752C2100067E00D03216 /* Loginformation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C56752A2100067E00D03216 /* Loginformation+CoreDataProperties.swift */; };
+		7C56752E21013FB900D03216 /* VoterHive Logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C56752D21013FB900D03216 /* VoterHive Logo.jpg */; };
+		7C5675302101419D00D03216 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C56752F2101419D00D03216 /* Icon-120.png */; };
+		7C567532210141B400D03216 /* Icon-180.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C567531210141B400D03216 /* Icon-180.png */; };
 		7C74B7E120EBDF4800CA78E5 /* MainScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C74B7E020EBDF4800CA78E5 /* MainScreenTableViewCell.swift */; };
 		7CC06F1E20E2D6D00006988A /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC06F1D20E2D6D00006988A /* PageViewController.swift */; };
 		7CC06F2020E572DC0006988A /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC06F1F20E572DC0006988A /* TextFieldExtension.swift */; };
@@ -40,6 +44,7 @@
 		64199BD19DD1D8F977D11035 /* Pods_MobileVoterOutreachApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileVoterOutreachApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6740542920F298290002A711 /* StateLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateLinks.swift; sourceTree = "<group>"; };
 		7C0BEB5420FA7976001721C4 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		7C1D3B33210278A30006C348 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		7C41550D20E296F1003E13C2 /* MobileVoterOutreachApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileVoterOutreachApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C41551020E296F1003E13C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C41551520E296F1003E13C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -55,6 +60,9 @@
 		7C56752620FE517800D03216 /* TableDisplay+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableDisplay+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7C5675292100067E00D03216 /* Loginformation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Loginformation+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7C56752A2100067E00D03216 /* Loginformation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Loginformation+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7C56752D21013FB900D03216 /* VoterHive Logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "VoterHive Logo.jpg"; path = "../../VoterHive Logo.jpg"; sourceTree = "<group>"; };
+		7C56752F2101419D00D03216 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-120.png"; path = "../../appiconmaker.co_ios/Icon-120.png"; sourceTree = "<group>"; };
+		7C567531210141B400D03216 /* Icon-180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-180.png"; path = "../../appiconmaker.co_ios/Icon-180.png"; sourceTree = "<group>"; };
 		7C74B7E020EBDF4800CA78E5 /* MainScreenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTableViewCell.swift; sourceTree = "<group>"; };
 		7C74B7E620EC20DF00CA78E5 /* CheckMarkHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckMarkHeader.h; sourceTree = "<group>"; };
 		7C74B7E720EC218E00CA78E5 /* BEMCheckBox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BEMCheckBox.h; sourceTree = "<group>"; };
@@ -126,7 +134,10 @@
 				7CC06F2120E573170006988A /* OpeningScreen.swift */,
 				7C41551420E296F1003E13C2 /* Main.storyboard */,
 				7C0BEB5420FA7976001721C4 /* PopUpViewController.swift */,
+				7C56752D21013FB900D03216 /* VoterHive Logo.jpg */,
+				7C56752F2101419D00D03216 /* Icon-120.png */,
 				7C41551720E296F3003E13C2 /* Assets.xcassets */,
+				7C567531210141B400D03216 /* Icon-180.png */,
 				7C41551C20E296F3003E13C2 /* Info.plist */,
 				7CC06F1D20E2D6D00006988A /* PageViewController.swift */,
 				7CDBF0DC20FA6E8B00529F9D /* GoogleService-Info.plist */,
@@ -141,6 +152,7 @@
 				7C74B7E820EC219D00CA78E5 /* BEMCheckBoxGroup.h */,
 				7C74B7E620EC20DF00CA78E5 /* CheckMarkHeader.h */,
 				7CF2929A20F4013500AAEB6E /* globalFunctions.swift */,
+				7C1D3B33210278A30006C348 /* Launch Screen.storyboard */,
 			);
 			path = MobileVoterOutreachApplication;
 			sourceTree = "<group>";
@@ -216,7 +228,11 @@
 			files = (
 				7C41551820E296F3003E13C2 /* Assets.xcassets in Resources */,
 				7CDBF0DD20FA6E8B00529F9D /* GoogleService-Info.plist in Resources */,
+				7C56752E21013FB900D03216 /* VoterHive Logo.jpg in Resources */,
+				7C5675302101419D00D03216 /* Icon-120.png in Resources */,
+				7C567532210141B400D03216 /* Icon-180.png in Resources */,
 				7C41551620E296F1003E13C2 /* Main.storyboard in Resources */,
+				7C1D3B34210278A30006C348 /* Launch Screen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +267,7 @@
 				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMultiSelect/SwiftMultiSelect.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
@@ -261,6 +278,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealingSplashView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMultiSelect.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
@@ -435,6 +453,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 19E0EF01D2BBC27905565308 /* Pods-MobileVoterOutreachApplication.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T6B9J22S49;
 				INFOPLIST_FILE = MobileVoterOutreachApplication/Info.plist;
@@ -454,6 +473,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A987A49A57046AC4DF4DE506 /* Pods-MobileVoterOutreachApplication.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T6B9J22S49;
 				INFOPLIST_FILE = MobileVoterOutreachApplication/Info.plist;

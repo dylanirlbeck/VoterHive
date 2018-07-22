@@ -48,13 +48,14 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
         
     }
     
+    //Action for the third check mark 
     @IBAction func thirdCheckClicked(_ sender: Any) {
         
         
         
         var testString = ""
         if (self.nameField.text != "VoterHive") {
-            testString = self.currentPerson!.name!
+            testString = self.currentPerson!.firstName!
         }
         
         // run a function
@@ -96,10 +97,9 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
                     self.ThirdCheck.setOn(false, animated: true)
                 }
                 for count in (self.viewController?.theCoreDataContactArray)! {
-                    if (count.name?.uppercased().trimmingCharacters(in: .whitespaces) == self.nameField.text?.uppercased().trimmingCharacters(in: .whitespaces)) {
+                    let aString: String = count.firstName! + count.middleName! + count.lastName!
+                    if (aString.uppercased().trimmingCharacters(in: .whitespaces) == self.nameField.text?.uppercased().trimmingCharacters(in: .whitespaces)) {
                         self.viewController?.theCoreDataContactArray[num].checks = 3
-                        print(self.viewController?.theCoreDataContactArray[num].checks)
-                        print(self.viewController?.theCoreDataContactArray[num].name)
                     }
                     num += 1
                 }
@@ -123,10 +123,10 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
                 var num = 0
                 self.ThirdCheck.setOn(false, animated: true)
                 for count in (self.viewController?.theCoreDataContactArray)! {
-                    if (count.name?.uppercased().trimmingCharacters(in: .whitespaces) == self.nameField.text?.uppercased().trimmingCharacters(in: .whitespaces)) {
+                    let aString: String = count.firstName! + count.middleName! + count.lastName!
+                    if (aString.uppercased().trimmingCharacters(in: .whitespaces) == self.nameField.text?.uppercased().trimmingCharacters(in: .whitespaces)) {
                         self.viewController?.theCoreDataContactArray[num].checks = 2
-                        print(self.viewController?.theCoreDataContactArray[num].checks)
-                        print(self.viewController?.theCoreDataContactArray[num].name)
+                        
                     }
                     num += 1
                 }
@@ -147,10 +147,10 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
 
     
     @IBAction func firstCheckClicked(_ sender: Any) {
-        
+        print(currentPerson?.firstName)
         var testString = ""
         if (self.nameField.text != "VoterHive") {
-        testString = self.currentPerson!.name!
+            testString = self.currentPerson!.firstName!
         }
         // run a function
         //SCLAlertView().showSuccess("Voting", subTitle: "Is \(self.currentPerson.name) voting? If you have not done so, please click the 'Contact' button below to send a message. If you have heard back with a confirmation, please select Done")
@@ -176,9 +176,9 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
             }
             if ((self.viewController?.theCoreDataContactArray.count)! > 0) {
             for contact in (self.viewController?.theCoreDataContactArray)! {
-                
+                let aString: String = contact.firstName! + contact.middleName! + contact.lastName!
                 var nameFieldString: String = self.nameField.text as! String
-                if (contact.name!.uppercased().trimmingCharacters(in: .whitespaces) == (nameFieldString.uppercased().trimmingCharacters(in: .whitespaces))) {
+                if (aString.uppercased().trimmingCharacters(in: .whitespaces) == (nameFieldString.uppercased().trimmingCharacters(in: .whitespaces))) {
                     
                     phoneNumber = contact.phone!
                     break
@@ -201,10 +201,10 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
             }
             
             for count in (self.viewController?.theCoreDataContactArray)! {
-                if (count.name?.uppercased().trimmingCharacters(in: .whitespaces) == self.nameField.text?.uppercased().trimmingCharacters(in: .whitespaces)) {
+                let aString: String = count.firstName! + count.middleName! + count.lastName!
+                if (aString.uppercased().trimmingCharacters(in: .whitespaces) == self.nameField.text?.uppercased().trimmingCharacters(in: .whitespaces)) {
                     self.viewController?.theCoreDataContactArray[num].checks = 1
-                    print(self.viewController?.theCoreDataContactArray[num].checks)
-                    print((self.viewController?.theCoreDataContactArray[num].name)! + "person's name")
+                    
                 }
                 num += 1
             }
@@ -228,10 +228,10 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
                 var num = 0
                 self.FirstCheck.setOn(false, animated: true)
                 for count in (self.viewController?.theCoreDataContactArray)! {
-                    if (count.name?.uppercased().trimmingCharacters(in: .whitespaces) == self.nameField.text?.uppercased().trimmingCharacters(in: .whitespaces)) {
+                    let aString: String = count.firstName! + count.middleName! + count.lastName!
+                    if (aString.uppercased().trimmingCharacters(in: .whitespaces) == self.nameField.text?.uppercased().trimmingCharacters(in: .whitespaces)) {
                         self.viewController?.theCoreDataContactArray[num].checks = 0
-                        print(self.viewController?.theCoreDataContactArray[num].checks)
-                        print(self.viewController?.theCoreDataContactArray[num].name)
+                        
                     }
                     num += 1
                 }
@@ -256,7 +256,7 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
       
         var testString = ""
         if (self.nameField.text != "VoterHive") {
-            testString = self.currentPerson!.name!
+            testString = self.currentPerson!.firstName!
         }
         
         //this condition happens the first time someone clicks the check (automatically turns it on, so have to treat this case as if it was on and turn it off immediately to show alert)
@@ -267,9 +267,13 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
                 kTextFont: UIFont(name: "HelveticaNeue", size: 14)!,
                 kButtonFont: UIFont(name: "HelveticaNeue-Bold", size: 14)!,
                 showCloseButton: false
+                
             )
             
+           
+            
             let alertView = SCLAlertView(appearance: appearance)
+            
             alertView.addButton("Cancel") {
                 alertView.hideView()
             }
@@ -290,12 +294,13 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
             
             alertView.addButton("Register \(testString)") {
                 print("hit register button")
-                if (txt.text == "") {
-                    return
-                }
+//                if (txt.text == "") {
+//                    return
+//                }
                 var num = 0
                     for count in (self.viewController?.theCoreDataContactArray)! {
-                        if (count.name?.uppercased().trimmingCharacters(in: .whitespaces) == self.nameField.text?.uppercased().trimmingCharacters(in: .whitespaces)) {
+                        let aString: String = count.firstName! + count.middleName! + count.lastName!
+                        if (aString.uppercased().trimmingCharacters(in: .whitespaces) == self.nameField.text?.uppercased().trimmingCharacters(in: .whitespaces)) {
                             
                         
                             let txtValue: String = txt.text!
@@ -320,12 +325,13 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
 //                }
             
             alertView.addButton("Check Their Registration") {
-                if (txt.text == "") {
-                    return
-                }
+//                if (txt.text == "") {
+//                    return
+//                }
                 var num = 0
                 for count in (self.viewController?.theCoreDataContactArray)! {
-                    if (count.name?.uppercased().trimmingCharacters(in: .whitespaces) == self.nameField.text?.uppercased().trimmingCharacters(in: .whitespaces)) {
+                    let aString: String = count.firstName! + count.middleName! + count.lastName!
+                    if (aString.uppercased().trimmingCharacters(in: .whitespaces) == self.nameField.text?.uppercased().trimmingCharacters(in: .whitespaces)) {
                         
                         
                         let txtValue: String = txt.text!
@@ -346,7 +352,8 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
             alertView.addButton("Registered!") {
                 var tracker = 0
                 for count in (self.viewController?.theCoreDataContactArray)! {
-                    if (count.name?.uppercased().trimmingCharacters(in: .whitespaces) == self.nameField.text?.uppercased().trimmingCharacters(in: .whitespaces)) {
+                    let aString: String = count.firstName! + count.middleName! + count.lastName!
+                    if (aString.uppercased().trimmingCharacters(in: .whitespaces) == self.nameField.text?.uppercased().trimmingCharacters(in: .whitespaces)) {
                         self.viewController?.theCoreDataContactArray[tracker].state = txt.text
                         print(self.viewController?.theCoreDataContactArray[tracker].state)
                     }
@@ -362,10 +369,10 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
                 }
                 if (localBool) {
                 for count in (self.viewController?.theCoreDataContactArray)! {
-                    if (count.name?.uppercased().trimmingCharacters(in: .whitespaces) == self.nameField.text?.uppercased().trimmingCharacters(in: .whitespaces)) {
+                    let aString: String = count.firstName! + count.middleName! + count.lastName!
+                    if (aString.uppercased().trimmingCharacters(in: .whitespaces) == self.nameField.text?.uppercased().trimmingCharacters(in: .whitespaces)) {
                         self.viewController?.theCoreDataContactArray[num].checks = 2
-                        print(self.viewController?.theCoreDataContactArray[num].checks)
-                        print(self.viewController?.theCoreDataContactArray[num].name)
+                        
                     }
                     num += 1
                 }
@@ -393,10 +400,10 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
                 var num = 0
                 self.SecondCheck.setOn(false, animated: true)
                 for count in (self.viewController?.theCoreDataContactArray)! {
-                    if (count.name?.uppercased().trimmingCharacters(in: .whitespaces) == self.nameField.text?.uppercased().trimmingCharacters(in: .whitespaces)) {
+                    let aString: String = count.firstName! + count.middleName! + count.lastName!
+                    if (aString.uppercased().trimmingCharacters(in: .whitespaces) == self.nameField.text?.uppercased().trimmingCharacters(in: .whitespaces)) {
                         self.viewController?.theCoreDataContactArray[num].checks = 1
-                        print(self.viewController?.theCoreDataContactArray[num].checks)
-                        print(self.viewController?.theCoreDataContactArray[num].name)
+                        
                     }
                     num += 1
                 }

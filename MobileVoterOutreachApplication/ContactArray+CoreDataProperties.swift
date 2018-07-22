@@ -16,9 +16,10 @@ extension ContactArray {
         return NSFetchRequest<ContactArray>(entityName: "ContactArray")
     }
 
-    @NSManaged public var name: String?
+    @NSManaged public var lastName: String?
     @NSManaged public var phone: String?
     @NSManaged public var checks: Int16
     @NSManaged public var state: String?
-
+    @NSManaged public var firstName: String?
+    @NSManaged public var middleName: String?
 }

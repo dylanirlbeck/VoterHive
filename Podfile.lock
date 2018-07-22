@@ -29,6 +29,7 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - RevealingSplashView (0.5.0)
   - SCLAlertView (0.8)
   - SwiftMultiSelect (0.2.4)
   - TextFieldEffects (1.4.0)
@@ -37,6 +38,7 @@ DEPENDENCIES:
   - BEMCheckBox
   - Firebase/Auth
   - Firebase/Core
+  - RevealingSplashView
   - SCLAlertView
   - SwiftMultiSelect
   - TextFieldEffects
@@ -52,6 +54,7 @@ SPEC REPOS:
     - GoogleToolboxForMac
     - GTMSessionFetcher
     - nanopb
+    - RevealingSplashView
     - SCLAlertView
     - SwiftMultiSelect
     - TextFieldEffects
@@ -66,10 +69,11 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  RevealingSplashView: 0794eecad3a8983ac11a1fe474e9a9b51b926780
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SwiftMultiSelect: 50e4c628935492d30d3c45ab88901502c3eb52f4
   TextFieldEffects: 4ee41b5216e674d55fb6ac25107bf1af7629176f
 
-PODFILE CHECKSUM: 60a7dd05ed1eb754dc52e6a02b9468ccfd45c3f4
+PODFILE CHECKSUM: d3efd002255742cf811e40781d9a5b184440e8de
 
 COCOAPODS: 1.5.3
