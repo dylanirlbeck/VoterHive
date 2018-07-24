@@ -63,7 +63,7 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
     @IBOutlet weak var hiveView: UIView!
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(String(counter) + " is the counter")
+        
         //pull the current label array from core data
         let thisRequest: NSFetchRequest<TableDisplay> = TableDisplay.fetchRequest()
         do {
@@ -71,21 +71,17 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
             
             let theNames = try PersistenceService.context.fetch(thisRequest)
             labelArray = theNames
-            print(labelArray.count)
-            print("above is the current labelarray count")
+           
         } catch {}
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MainScreenTableViewCell
         while (counter < labelArray.count) {
             cell.nameField.text = labelArray[counter].someName
-            print(labelArray[counter].someName! + "SOME NAME")
+            
             for person in theCoreDataContactArray {
-                print(person.firstName)
-                print(person.middleName)
-                print(person.lastName
-                )
+               
                 var aString = person.firstName! + person.middleName! + person.lastName!
-                print(aString + "THIS IS ASTRING")
+                
                 
                 if (aString.trimmingCharacters(in: .whitespacesAndNewlines) == labelArray[counter].someName?.trimmingCharacters(in: .whitespacesAndNewlines)) {
                     print("INSIDE HEREEE")
@@ -230,7 +226,7 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
             
             let contactArrayCore = try PersistenceService.context.fetch(contactArrayRequest)
             currentCoreArray = contactArrayCore
-            print(currentCoreArray?.count)
+           
             
             
         } catch {}
@@ -274,10 +270,7 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
                         boolToCheckIfSimilar = false
                     } else {
                         //else, add the contact into our core data
-                        if (aContact.firstName == "John") {
-                            print(aContact.firstName)
-
-                        }
+                       
                         
                     }
                 }
@@ -331,11 +324,8 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
 
         
         self.theCoreDataContactArray = currentCoreArray!
-        print(self.theCoreDataContactArray.count)
-        for name in self.theCoreDataContactArray {
-            print(name.firstName)
-            print(name.lastName)
-        }
+        
+       
         
     }
 

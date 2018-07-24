@@ -154,11 +154,12 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dhw-tX-P15">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dhw-tX-P15">
                                 <rect key="frame" x="0.0" y="59" width="376" height="608"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Zf1-M2-gtU" customClass="RoundButton" customModule="MobileVoterOutreachApplication" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="173" width="376" height="55"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -303,6 +304,7 @@
                         <color key="backgroundColor" red="0.23392206430435181" green="0.53150820732116699" blue="0.74512535333633423" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="F4a-N4-H9o"/>
                     </view>
+                    <navigationItem key="navigationItem" id="rlg-wK-49V"/>
                     <connections>
                         <outlet property="addContactsButton" destination="Dhw-tX-P15" id="kTQ-bS-f70"/>
                         <outlet property="contactTableView" destination="Dhw-tX-P15" id="nC4-bf-ZD7"/>
@@ -316,6 +318,7 @@
         <!--View Controller-->
         <scene sceneID="2kS-p2-mxR">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TQt-M5-mLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="InformationPageOne" id="DKQ-J7-GLY" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bbb-10-FYc" customClass="Sec">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -324,7 +327,6 @@
                         <viewLayoutGuide key="safeArea" id="Npu-2X-MiJ"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TQt-M5-mLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="508" y="475.41229385307349"/>
         </scene>
@@ -436,6 +438,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dtu-Qy-chp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1356" y="488.90554722638683"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GPY-sU-hO9">
+            <objects>
+                <navigationController id="iTl-RB-2xE" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tOr-Cb-UTf">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="1Yj-8M-9cc" kind="relationship" relationship="rootViewController" id="EyP-ZA-Jmi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dqr-5j-rVK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2113" y="480"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="p57-Iv-y9J">

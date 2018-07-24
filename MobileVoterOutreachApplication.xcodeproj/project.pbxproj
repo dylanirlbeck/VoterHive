@@ -28,6 +28,7 @@
 		7C5675302101419D00D03216 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C56752F2101419D00D03216 /* Icon-120.png */; };
 		7C567532210141B400D03216 /* Icon-180.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C567531210141B400D03216 /* Icon-180.png */; };
 		7C74B7E120EBDF4800CA78E5 /* MainScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C74B7E020EBDF4800CA78E5 /* MainScreenTableViewCell.swift */; };
+		7CB7C86021077F7400343C55 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7C85E21077F7300343C55 /* SWRevealViewController.m */; };
 		7CC06F1E20E2D6D00006988A /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC06F1D20E2D6D00006988A /* PageViewController.swift */; };
 		7CC06F2020E572DC0006988A /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC06F1F20E572DC0006988A /* TextFieldExtension.swift */; };
 		7CC06F2220E573170006988A /* OpeningScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC06F2120E573170006988A /* OpeningScreen.swift */; };
@@ -67,6 +68,9 @@
 		7C74B7E620EC20DF00CA78E5 /* CheckMarkHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckMarkHeader.h; sourceTree = "<group>"; };
 		7C74B7E720EC218E00CA78E5 /* BEMCheckBox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BEMCheckBox.h; sourceTree = "<group>"; };
 		7C74B7E820EC219D00CA78E5 /* BEMCheckBoxGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BEMCheckBoxGroup.h; sourceTree = "<group>"; };
+		7CB7C85E21077F7300343C55 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		7CB7C85F21077F7400343C55 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		7CB7C86121077FC400343C55 /* MobileVoterOutreachApplication-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MobileVoterOutreachApplication-Bridging-Header.h"; sourceTree = "<group>"; };
 		7CC06F1D20E2D6D00006988A /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		7CC06F1F20E572DC0006988A /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
 		7CC06F2120E573170006988A /* OpeningScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningScreen.swift; sourceTree = "<group>"; };
@@ -131,8 +135,11 @@
 			isa = PBXGroup;
 			children = (
 				7C41551020E296F1003E13C2 /* AppDelegate.swift */,
+				7CB7C85F21077F7400343C55 /* SWRevealViewController.h */,
+				7CB7C85E21077F7300343C55 /* SWRevealViewController.m */,
 				7CC06F2120E573170006988A /* OpeningScreen.swift */,
 				7C41551420E296F1003E13C2 /* Main.storyboard */,
+				7CB7C86121077FC400343C55 /* MobileVoterOutreachApplication-Bridging-Header.h */,
 				7C0BEB5420FA7976001721C4 /* PopUpViewController.swift */,
 				7C56752D21013FB900D03216 /* VoterHive Logo.jpg */,
 				7C56752F2101419D00D03216 /* Icon-120.png */,
@@ -299,6 +306,7 @@
 				7CF2929B20F4013500AAEB6E /* globalFunctions.swift in Sources */,
 				7C56752320FD790E00D03216 /* LoadingContacts+CoreDataClass.swift in Sources */,
 				7CC06F3620E68B450006988A /* SecondOpeningScreen.swift in Sources */,
+				7CB7C86021077F7400343C55 /* SWRevealViewController.m in Sources */,
 				7CC06F2A20E58BE80006988A /* ButtonExtension.swift in Sources */,
 				7C56752720FE517800D03216 /* TableDisplay+CoreDataClass.swift in Sources */,
 				7CC06F2820E581E20006988A /* HideKeyBoardExtension.swift in Sources */,

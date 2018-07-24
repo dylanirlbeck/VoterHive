@@ -74,8 +74,8 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
             }
             alertView.addButton("Reach Out") {
                 //put code for SMS Voting message here
-                let yourState = (State(of: (self.currentPerson?.state)!)
-                if  yourState.canVoteEarly
+                let yourState = (State(of: (self.currentPerson?.state)!))
+                if (yourState.canVoteEarly) {
                     self.viewController?.displayMessages(body: "Have you requested your early ballot?", number: (self.currentPerson?.phone)! )
                 }
                 else {
@@ -318,13 +318,14 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
                     }
                 //put code for SMS Voting message hereif self.currentPerson.state.canRegisterOnline {
                 
-                let yourState = (State(of: (self.currentPerson?.state)!)
-                if  yourState.canRegisterOnline {
-                self.viewController?.displayMessages(body: "You can register to vote here: \yourState.registerToVoteLink)", number: (self.currentPerson?.phone)! )
+                let yourState = (State(of: (self.currentPerson?.state)!))
+                if  (yourState.canRegisterOnline) {
+                self.viewController?.displayMessages(body: "You can register to vote here: \(yourState.registerToVoteLink)", number: (self.currentPerson?.phone)! )
                 }
                                  else {
-                                     self.viewController?.displayMessages(body: "You can't register to vote online in \(yourState.name), but you should vote for somebody who'll change that. Get the process started by going here: \(self.currentPerson.state.registerToVoteLink)", number: (self.currentPerson.phone) )
+                    self.viewController?.displayMessages(body: "You can't register to vote online in \(yourState.name), but you should vote for somebody who'll change that. Get the process started by going here: \(yourState.registerToVoteLink)", number: (self.currentPerson?.phone)! )
                                  }
+            }
             
             alertView.addButton("Check Their Registration") {
 //                if (txt.text == "") {
@@ -382,10 +383,10 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
                 }
             }
           
-            
-            
             alertView.showSuccess("Registered?", subTitle: "Ask if \(testString)'s registered to vote in their state. If they're not registered, they can't vote!")
-        } else if (SecondCheck.on == false) {
+        }
+            else {
+            if (SecondCheck.on == false) {
             SecondCheck.setOn(true, animated: false)
             let appearance = SCLAlertView.SCLAppearance(
                 kTitleFont: UIFont(name: "HelveticaNeue", size: 20)!,
@@ -413,9 +414,7 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
             alertView.showSuccess("Registered?", subTitle: "Do you want to erase \(testString)'s Registered checkmark?")
             print("User tried to delete registered check")
         }
-        else {
-            
-        }
+       
         // run a function
         if (FirstCheck.on == false) {
             SecondCheck.setOn(false, animated: true)
@@ -423,10 +422,7 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
         
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+ 
 
-        // Configure the view for the selected state
-    }
-
+}
 }

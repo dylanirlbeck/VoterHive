@@ -46,7 +46,7 @@ class State {
                                "connecticut",
                                "delaware",
                                "districtofcolumbia",
-                               "washingtondc"
+                               "washingtondc",
                                "florida",
                                "georgia",
                                "hawaii",
