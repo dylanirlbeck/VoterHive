@@ -55,7 +55,11 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
         
         var testString = ""
         if (self.nameField.text != "VoterHive") {
-            testString = self.currentPerson!.firstName!
+            if (self.currentPerson == nil) {
+                testString = "Kate"
+            } else {
+                testString = self.currentPerson!.firstName!
+            }
         }
         
         // run a function
@@ -151,7 +155,11 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
         print(currentPerson?.firstName)
         var testString = ""
         if (self.nameField.text != "VoterHive") {
+            if (self.currentPerson == nil) {
+                testString = "Kate"
+            } else {
             testString = self.currentPerson!.firstName!
+            }
         }
         // run a function
         //SCLAlertView().showSuccess("Voting", subTitle: "Is \(self.currentPerson.name) voting? If you have not done so, please click the 'Contact' button below to send a message. If you have heard back with a confirmation, please select Done")
@@ -187,7 +195,9 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
             }
             }
             // to get rid of the "optional(x)" in display
-           
+            if (phoneNumber == nil || phoneNumber == "") {
+                phoneNumber = "12345678910"
+            }
             self.viewController?.displayMessages(body: "Hey, \(testString), I'm using this app VoterHive to see if my friends are voting Democratic for the upcoming November midterms. Are you going to vote for Democrats?", number: (phoneNumber) )
                         //put code for SMS Voting message here
             
@@ -257,7 +267,11 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
       
         var testString = ""
         if (self.nameField.text != "VoterHive") {
-            testString = self.currentPerson!.firstName!
+            if (self.currentPerson == nil) {
+                testString = "Kate"
+            } else {
+                testString = self.currentPerson!.firstName!
+            }
         }
         
         //this condition happens the first time someone clicks the check (automatically turns it on, so have to treat this case as if it was on and turn it off immediately to show alert)
@@ -426,3 +440,4 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
 
 }
 }
+

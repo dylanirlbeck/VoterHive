@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="VoterHive Logo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="g6k-gZ-6np">
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icon-180.png" translatesAutoresizingMaskIntoConstraints="NO" id="g6k-gZ-6np">
                                 <rect key="frame" x="127" y="273" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -35,6 +35,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="VoterHive Logo.jpg" width="500" height="500"/>
+        <image name="Icon-180.png" width="180" height="180"/>
     </resources>
 </document>

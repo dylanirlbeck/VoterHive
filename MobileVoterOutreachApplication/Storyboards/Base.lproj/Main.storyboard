@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Yj-8M-9cc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Second Opening Screen-->
+        <scene sceneID="aOY-fy-3MI">
+            <objects>
+                <viewController storyboardIdentifier="homeScreen" wantsFullScreenLayout="YES" id="1Yj-8M-9cc" customClass="SecondOpeningScreen" customModule="MobileVoterOutreachApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lEc-ut-1XI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RfY-l1-RAq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="redraw" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7eo-aa-for">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Hive" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lda-4T-PNt">
+                                                <rect key="frame" x="0.0" y="18" width="376" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="33"/>
+                                                <color key="textColor" red="0.23392206430435181" green="0.53150820732116699" blue="0.74512535333633423" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.5"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dhw-tX-P15">
+                                <rect key="frame" x="0.0" y="59" width="376" height="608"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Zf1-M2-gtU" customClass="RoundButton" customModule="MobileVoterOutreachApplication" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="173" width="376" height="55"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                    <state key="normal" title="Add More Contacts">
+                                        <color key="titleColor" red="0.20096758009999999" green="0.53150230649999997" blue="0.74512547250000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonAction:" destination="1Yj-8M-9cc" eventType="touchUpInside" id="Icr-8g-3DP"/>
+                                    </connections>
+                                </button>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="145" id="5zH-mx-a8z" customClass="MainScreenTableViewCell" customModule="MobileVoterOutreachApplication" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="376" height="145"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5zH-mx-a8z" id="Mya-vM-or3">
+                                            <rect key="frame" x="0.0" y="0.0" width="376" height="144.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQK-Qb-O67">
+                                                    <rect key="frame" x="78" y="23" width="0.0" height="0.0"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Voting" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OyU-Xg-fau">
+                                                    <rect key="frame" x="28" y="90" width="41" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Registered" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MX-Sq-8Or">
+                                                    <rect key="frame" x="151.5" y="90" width="69" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Voted" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSh-Rw-V6t">
+                                                    <rect key="frame" x="304" y="90" width="50" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ArE-Zr-jpp" customClass="BEMCheckBox">
+                                                    <rect key="frame" x="19" y="30" width="71" height="57"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
+                                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="onFillColor">
+                                                            <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="onCheckColor">
+                                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="firstCheckClicked:" destination="5zH-mx-a8z" eventType="valueChanged" id="Fkx-W6-4zx"/>
+                                                    </connections>
+                                                </view>
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MT6-Hm-kxb" customClass="BEMCheckBox">
+                                                    <rect key="frame" x="158" y="31" width="71" height="57"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
+                                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="onFillColor">
+                                                            <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="onCheckColor">
+                                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="secondCheckClicked:" destination="5zH-mx-a8z" eventType="valueChanged" id="Tqs-4W-wkT"/>
+                                                    </connections>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="VoterHive" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5d-Z8-Ud4">
+                                                    <rect key="frame" x="112" y="3" width="154" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yXC-OC-Hae" customClass="BEMCheckBox">
+                                                    <rect key="frame" x="292" y="30" width="71" height="57"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
+                                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="onFillColor">
+                                                            <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="onCheckColor">
+                                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="thirdCheckClicked:" destination="5zH-mx-a8z" eventType="valueChanged" id="o8M-rm-jmr"/>
+                                                    </connections>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="OyU-Xg-fau" firstAttribute="leading" secondItem="Mya-vM-or3" secondAttribute="leadingMargin" constant="13" id="3Mv-e9-1YI"/>
+                                                <constraint firstItem="yXC-OC-Hae" firstAttribute="width" secondItem="MT6-Hm-kxb" secondAttribute="width" id="4BU-7m-Ynm"/>
+                                                <constraint firstAttribute="trailing" secondItem="yXC-OC-Hae" secondAttribute="trailing" constant="13" id="7oi-Jl-mKR"/>
+                                                <constraint firstItem="ArE-Zr-jpp" firstAttribute="height" secondItem="yXC-OC-Hae" secondAttribute="height" id="939-dj-MDB"/>
+                                                <constraint firstItem="MT6-Hm-kxb" firstAttribute="leading" secondItem="ArE-Zr-jpp" secondAttribute="trailing" constant="68" id="B5C-HY-6FY"/>
+                                                <constraint firstItem="0MX-Sq-8Or" firstAttribute="top" secondItem="MT6-Hm-kxb" secondAttribute="bottom" constant="7" id="D1M-Hz-bgR"/>
+                                                <constraint firstItem="MT6-Hm-kxb" firstAttribute="top" secondItem="Mya-vM-or3" secondAttribute="topMargin" constant="19" id="Frh-N7-x5w"/>
+                                                <constraint firstItem="ArE-Zr-jpp" firstAttribute="leading" secondItem="Mya-vM-or3" secondAttribute="leadingMargin" constant="4" id="Hdg-ls-Jxk"/>
+                                                <constraint firstItem="z5d-Z8-Ud4" firstAttribute="centerX" secondItem="Mya-vM-or3" secondAttribute="centerX" id="RCv-qN-WMs"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="lSh-Rw-V6t" secondAttribute="trailing" constant="20" id="ROY-e1-864"/>
+                                                <constraint firstItem="lSh-Rw-V6t" firstAttribute="top" secondItem="yXC-OC-Hae" secondAttribute="bottom" constant="7" id="T1r-AA-wex"/>
+                                                <constraint firstItem="ArE-Zr-jpp" firstAttribute="width" secondItem="MT6-Hm-kxb" secondAttribute="width" id="TET-Z4-TGe"/>
+                                                <constraint firstItem="ArE-Zr-jpp" firstAttribute="height" secondItem="MT6-Hm-kxb" secondAttribute="height" id="TTa-Yk-Ozu"/>
+                                                <constraint firstItem="yXC-OC-Hae" firstAttribute="height" secondItem="MT6-Hm-kxb" secondAttribute="height" id="UVu-me-bzm"/>
+                                                <constraint firstItem="0MX-Sq-8Or" firstAttribute="leading" secondItem="OyU-Xg-fau" secondAttribute="trailing" constant="84.5" id="WO5-0F-Q98"/>
+                                                <constraint firstItem="ArE-Zr-jpp" firstAttribute="top" secondItem="Mya-vM-or3" secondAttribute="topMargin" constant="19" id="XMg-nx-rNW"/>
+                                                <constraint firstItem="ArE-Zr-jpp" firstAttribute="width" secondItem="yXC-OC-Hae" secondAttribute="width" id="Zck-Nl-uwX"/>
+                                                <constraint firstItem="lSh-Rw-V6t" firstAttribute="leading" secondItem="0MX-Sq-8Or" secondAttribute="trailing" constant="79" id="eB5-GT-Pm4"/>
+                                                <constraint firstItem="yXC-OC-Hae" firstAttribute="top" secondItem="Mya-vM-or3" secondAttribute="top" constant="26" id="fkF-GS-mBz"/>
+                                                <constraint firstItem="OyU-Xg-fau" firstAttribute="top" secondItem="ArE-Zr-jpp" secondAttribute="bottom" constant="7" id="qSE-Es-X77"/>
+                                                <constraint firstItem="yXC-OC-Hae" firstAttribute="leading" secondItem="MT6-Hm-kxb" secondAttribute="trailing" constant="63" id="xYJ-Md-PoY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="FirstCheck" destination="ArE-Zr-jpp" id="CyJ-EN-f5T"/>
+                                            <outlet property="SecondCheck" destination="MT6-Hm-kxb" id="wdj-6g-Nzk"/>
+                                            <outlet property="ThirdCheck" destination="yXC-OC-Hae" id="pq9-Bf-IuQ"/>
+                                            <outlet property="hasVoted" destination="lSh-Rw-V6t" id="PHI-en-VVW"/>
+                                            <outlet property="isRegistered" destination="0MX-Sq-8Or" id="uVo-QM-jcE"/>
+                                            <outlet property="isVoting" destination="OyU-Xg-fau" id="z8G-g6-0Ku"/>
+                                            <outlet property="nameField" destination="z5d-Z8-Ud4" id="XCh-DT-FB6"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.23392206430435181" green="0.53150820732116699" blue="0.74512535333633423" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <viewLayoutGuide key="safeArea" id="F4a-N4-H9o"/>
+                    </view>
+                    <connections>
+                        <outlet property="contactTableView" destination="Dhw-tX-P15" id="nC4-bf-ZD7"/>
+                        <outlet property="hiveView" destination="7eo-aa-for" id="Myk-hb-dmY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hry-uP-xlP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2319.1999999999998" y="-233.43328335832086"/>
+        </scene>
+    </scenes>
+</document>

@@ -84,7 +84,7 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
                 
                 
                 if (aString.trimmingCharacters(in: .whitespacesAndNewlines) == labelArray[counter].someName?.trimmingCharacters(in: .whitespacesAndNewlines)) {
-                    print("INSIDE HEREEE")
+                    
                     cell.currentPerson = person
                     if (person.checks == 1) {
                         cell.FirstCheck.setOn(true, animated: true)
@@ -278,7 +278,7 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
                 //add in a function to check for inconsistent contacts
                 
                 if (boolToCheckIfSimilar) {
-                    print("INSIDE")
+                    
                     let person = ContactArray(context: PersistenceService.context)
                     person.firstName = contact.givenName
                     if (contact.familyName != nil) {
@@ -330,9 +330,6 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
     }
 
     
-    @IBOutlet weak var addContactsButton: UITableView!
-    
-    
     @IBAction func buttonAction(_ sender: Any) {
         SwiftMultiSelect.Show(to: self)
     }
@@ -348,7 +345,7 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
         
                 //Adds the revealing splash view as a sub view
         self.view.addSubview(revealingSplashView)
-        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { (timer) in
+        let timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { (timer) in
             // do stuff 42 seconds later
              revealingSplashView.playWoobleAnimation()
         }
