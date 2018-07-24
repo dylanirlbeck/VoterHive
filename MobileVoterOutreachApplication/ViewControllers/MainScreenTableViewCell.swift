@@ -86,13 +86,13 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
                     self.viewController?.displayMessages(body: "Will you be able to vote there in person?", number: (self.currentPerson?.phone)! )
                 }
             }
-            alertView.addButton("Check Their Mail-In Ballot") {
+            alertView.addButton("Check \(testString)'s Mail-In Ballot") {
                 self.viewController?.displayMessages(body: "You can check your early ballot status here: \(State(of: (self.currentPerson?.state)!).checkBallotLink)", number: (self.currentPerson?.phone)! )
             }
-            alertView.addButton("Find Their Polling Place") {
+            alertView.addButton("Find \(testString)'s Polling Place") {
                 self.viewController?.displayMessages(body: "You can find your polling place with this website: \(State(of: (self.currentPerson?.state)!).findPollingPlaceLink)", number: (self.currentPerson?.phone)! )
             }
-            alertView.addButton("Get Their Mail-In Ballot") {
+            alertView.addButton("Get \(testString)'s Mail-In Ballot") {
                 self.viewController?.displayMessages(body: "You can ask for your mail-in ballot here: \(State(of: (self.currentPerson?.state)!).requestMailInBallotLink)", number: (self.currentPerson?.phone)! )
             }
             alertView.addButton("Voted!") {
