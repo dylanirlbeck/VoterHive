@@ -327,7 +327,7 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
                                  }
             }
             
-            alertView.addButton("Check Their Registration") {
+            alertView.addButton("Check \(testString)'s Registration") {
 //                if (txt.text == "") {
 //                    return
 //                }
