@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		05DFEE673A22E6B45E50ABB3 /* Pods_MobileVoterOutreachApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64199BD19DD1D8F977D11035 /* Pods_MobileVoterOutreachApplication.framework */; };
 		6740542A20F298290002A711 /* StateLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6740542920F298290002A711 /* StateLinks.swift */; };
+		7C15AC332108FD6E00998F4B /* VoterHive Logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C15AC322108FD6D00998F4B /* VoterHive Logo.jpg */; };
+		7C15AC352108FD7800998F4B /* Icon-180.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C15AC342108FD7800998F4B /* Icon-180.png */; };
 		7C1D3B34210278A30006C348 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C1D3B33210278A30006C348 /* Launch Screen.storyboard */; };
-		7C240B2E2107878300727442 /* Icon-180.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C240B2D2107878300727442 /* Icon-180.png */; };
 		7C41551120E296F1003E13C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C41551020E296F1003E13C2 /* AppDelegate.swift */; };
 		7C41551620E296F1003E13C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C41551420E296F1003E13C2 /* Main.storyboard */; };
 		7C41551820E296F3003E13C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C41551720E296F3003E13C2 /* Assets.xcassets */; };
@@ -28,7 +29,6 @@
 		7CC06F2620E57FE30006988A /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC06F2520E57FE30006988A /* RoundButton.swift */; };
 		7CC06F2A20E58BE80006988A /* ButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC06F2920E58BE80006988A /* ButtonExtension.swift */; };
 		7CC06F3620E68B450006988A /* SecondOpeningScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC06F3520E68B450006988A /* SecondOpeningScreen.swift */; };
-		7CDBDEAE2107BF8B000A2E38 /* VoterHive Logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7CDBDEAD2107BF8B000A2E38 /* VoterHive Logo.jpg */; };
 		7CF2929B20F4013500AAEB6E /* globalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF2929A20F4013500AAEB6E /* globalFunctions.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,10 +36,11 @@
 		19E0EF01D2BBC27905565308 /* Pods-MobileVoterOutreachApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileVoterOutreachApplication.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MobileVoterOutreachApplication/Pods-MobileVoterOutreachApplication.debug.xcconfig"; sourceTree = "<group>"; };
 		64199BD19DD1D8F977D11035 /* Pods_MobileVoterOutreachApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileVoterOutreachApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6740542920F298290002A711 /* StateLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateLinks.swift; sourceTree = "<group>"; };
+		7C15AC322108FD6D00998F4B /* VoterHive Logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "VoterHive Logo.jpg"; path = "../../VoterHiveScreenshots and Other Things/VoterHive Logo.jpg"; sourceTree = "<group>"; };
+		7C15AC342108FD7800998F4B /* Icon-180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-180.png"; path = "../../VoterHiveScreenshots and Other Things/appiconmaker.co_ios/Icon-180.png"; sourceTree = "<group>"; };
 		7C1D3B33210278A30006C348 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		7C240B232107854100727442 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
 		7C240B292107855F00727442 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		7C240B2D2107878300727442 /* Icon-180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-180.png"; path = "../../appiconmaker.co_ios/Icon-180.png"; sourceTree = "<group>"; };
 		7C41550D20E296F1003E13C2 /* MobileVoterOutreachApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileVoterOutreachApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C41551020E296F1003E13C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C41551520E296F1003E13C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,7 +63,6 @@
 		7CC06F2520E57FE30006988A /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		7CC06F2920E58BE80006988A /* ButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtension.swift; sourceTree = "<group>"; };
 		7CC06F3520E68B450006988A /* SecondOpeningScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOpeningScreen.swift; sourceTree = "<group>"; };
-		7CDBDEAD2107BF8B000A2E38 /* VoterHive Logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "VoterHive Logo.jpg"; path = "../../VoterHive Logo.jpg"; sourceTree = "<group>"; };
 		7CF2929A20F4013500AAEB6E /* globalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = globalFunctions.swift; sourceTree = "<group>"; };
 		A987A49A57046AC4DF4DE506 /* Pods-MobileVoterOutreachApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileVoterOutreachApplication.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobileVoterOutreachApplication/Pods-MobileVoterOutreachApplication.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -168,8 +168,8 @@
 			isa = PBXGroup;
 			children = (
 				7C41551020E296F1003E13C2 /* AppDelegate.swift */,
-				7C240B2D2107878300727442 /* Icon-180.png */,
-				7CDBDEAD2107BF8B000A2E38 /* VoterHive Logo.jpg */,
+				7C15AC322108FD6D00998F4B /* VoterHive Logo.jpg */,
+				7C15AC342108FD7800998F4B /* Icon-180.png */,
 				7C240B20210784DB00727442 /* ClassExtensions */,
 				7C240B1F210784AB00727442 /* ViewControllers */,
 				7C240B212107850F00727442 /* Storyboards */,
@@ -251,8 +251,8 @@
 			files = (
 				7C41551820E296F3003E13C2 /* Assets.xcassets in Resources */,
 				7C41551620E296F1003E13C2 /* Main.storyboard in Resources */,
-				7CDBDEAE2107BF8B000A2E38 /* VoterHive Logo.jpg in Resources */,
-				7C240B2E2107878300727442 /* Icon-180.png in Resources */,
+				7C15AC332108FD6E00998F4B /* VoterHive Logo.jpg in Resources */,
+				7C15AC352108FD7800998F4B /* Icon-180.png in Resources */,
 				7C1D3B34210278A30006C348 /* Launch Screen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

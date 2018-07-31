@@ -10,6 +10,7 @@ import MessageUI
 import ContactsUI
 import CoreData
 import RevealingSplashView
+import SCLAlertView
 
 class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableViewDelegate, UITableViewDataSource, MFMessageComposeViewControllerDelegate {
    
@@ -207,6 +208,8 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
         var checkLocalCount: Int? = nil
         var currentCoreArray: [ContactArray]? = nil
         
+        print(self.theCoreDataContactArray.count)
+        print("above is initial count")
 //        //request to get the first boolean, so as to only run the majority of this function once
 //        let aRequest: NSFetchRequest<LoadingContacts> = LoadingContacts.fetchRequest()
 //
@@ -278,7 +281,7 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
                 //add in a function to check for inconsistent contacts
                 
                 if (boolToCheckIfSimilar) {
-                    
+                    print("inside thiss booltocheckifimilar")
                     let person = ContactArray(context: PersistenceService.context)
                     person.firstName = contact.givenName
                     if (contact.familyName != nil) {
@@ -311,28 +314,54 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
 //        print(anArray.count)
 //        print(anArray[0].name)
         
-//        let thisRequest: NSFetchRequest<ContactArray> = ContactArray.fetchRequest()
-//
-//                 do {
-//        //
-//                    let theFinalArr = try PersistenceService.context.fetch(thisRequest)
-//                    currentCoreArray = theFinalArr
-//                    print(" this request count:  \(currentCoreArray?.count)")
-//                    print((currentCoreArray?[0].firstName)! + " this request element")
-//        //
-//                } catch {}
+        let thisRequest: NSFetchRequest<ContactArray> = ContactArray.fetchRequest()
+
+                 do {
+        
+                    let theFinalArr = try PersistenceService.context.fetch(thisRequest)
+                    self.theCoreDataContactArray = theFinalArr
+                    
+        //
+                } catch {}
 
         
-        self.theCoreDataContactArray = currentCoreArray!
-        
+        PersistenceService.saveContext()
+        print(self.theCoreDataContactArray.count)
+        print("above is the post count")
        
         
+    }
+    
+    func callGetContacts() {
+        getContacts()
     }
 
     
     @IBAction func buttonAction(_ sender: Any) {
-        SwiftMultiSelect.Show(to: self)
+        let authorizationStatus = CNContactStore.authorizationStatus(for: CNEntityType.contacts)
+        
+        if (authorizationStatus == .authorized) {
+        
+            DispatchQueue.global().async {
+                do {
+                    print("INSIDE HERE")
+                self.callGetContacts()
+                }
+                catch {
+                    print("error with get contacts")
+                }
+                DispatchQueue.main.async(execute: {
+                SwiftMultiSelect.Show(to: self)
+                })
+            }
+        }
+            else  {
+            let alertView = SCLAlertView()
+            alertView.showError("Error", subTitle: "You have not allowed VoterHive to access your contacts. For this app to serve its purpose, it must access your contacts. Please change your privacy settings.")
+        }
+        
     }
+    
     
     
     
@@ -346,17 +375,27 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
                 //Adds the revealing splash view as a sub view
         self.view.addSubview(revealingSplashView)
         let timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { (timer) in
-            // do stuff 42 seconds later
              revealingSplashView.playWoobleAnimation()
         }
 
        
         
        
-        getContacts()
+        //getContacts()
 //        print(anArray[0].name)
         //print(anArray.count)
+        let thisRequest: NSFetchRequest<ContactArray> = ContactArray.fetchRequest()
         
+        do {
+            
+            let theFinalArr = try PersistenceService.context.fetch(thisRequest)
+            self.theCoreDataContactArray = theFinalArr
+            
+            //
+        } catch {}
+        
+        
+        PersistenceService.saveContext()
         contactTableView.dataSource = self
         contactTableView.delegate = self
         contactTableView.rowHeight = (UIScreen.main.bounds.height)/6
@@ -366,6 +405,7 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
         
         SwiftMultiSelect.dataSourceType = .phone
         SwiftMultiSelect.delegate       = self
+        
         
         
 //////////        THIS IS FOR DELETING CORE DATA
@@ -408,7 +448,7 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
 //
 //
    }
-    
+
     //MARK: - SwiftMultiSelectDelegate
     
     //User write something in searchbar

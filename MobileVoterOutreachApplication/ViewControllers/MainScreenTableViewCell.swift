@@ -152,15 +152,11 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
 
     
     @IBAction func firstCheckClicked(_ sender: Any) {
-        print(currentPerson?.firstName)
+       
         var testString = ""
         if (self.nameField.text != "VoterHive") {
-            if (self.currentPerson == nil) {
-                testString = "Kate"
-            } else {
             testString = self.currentPerson!.firstName!
             }
-        }
         // run a function
         //SCLAlertView().showSuccess("Voting", subTitle: "Is \(self.currentPerson.name) voting? If you have not done so, please click the 'Contact' button below to send a message. If you have heard back with a confirmation, please select Done")
         if (FirstCheck.on == true) {
@@ -267,11 +263,8 @@ class MainScreenTableViewCell: UITableViewCell, BEMCheckBoxDelegate  {
       
         var testString = ""
         if (self.nameField.text != "VoterHive") {
-            if (self.currentPerson == nil) {
-                testString = "Kate"
-            } else {
                 testString = self.currentPerson!.firstName!
-            }
+            
         }
         
         //this condition happens the first time someone clicks the check (automatically turns it on, so have to treat this case as if it was on and turn it off immediately to show alert)
