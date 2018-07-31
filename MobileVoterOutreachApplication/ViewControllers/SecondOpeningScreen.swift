@@ -61,7 +61,7 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
     @IBOutlet weak var contactTableView: UITableView!
     
    
-    @IBOutlet weak var hiveView: UIView!
+   
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -230,7 +230,7 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
             let contactArrayCore = try PersistenceService.context.fetch(contactArrayRequest)
             currentCoreArray = contactArrayCore
            
-            
+            print("current core array count = \(currentCoreArray?.count)")
             
         } catch {}
         
@@ -261,13 +261,20 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
                 }
                
                 for aContact in currentCoreArray! {
+                    let aFirstName = aContact.firstName!
+                    let aMiddleName = aContact.middleName!
+                    let aLastName = aContact.lastName!
+                   
+
 //                    let aString: String = aContact.firstName! + aContact.middleName! + aContact.lastName!
 //                    print(aString + " this is a string")
                 
-                    if (aContact.firstName! == contact.givenName && aContact.middleName! == contact.middleName && aContact.lastName! == contact.familyName) {
+                    if (aFirstName == contact.givenName && aMiddleName == (" " + contact.middleName) && aLastName == contact.familyName) {
+                       
                         if (aContact.phone != phoneNumber) {
+                            
                             aContact.phone = phoneNumber
-                            print("INSIDE PHONE IF STATEMENT")
+
                         }
                         //means our core data contact array already has a contact stored, this is for adding new contacts
                         boolToCheckIfSimilar = false
@@ -281,7 +288,7 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
                 //add in a function to check for inconsistent contacts
                 
                 if (boolToCheckIfSimilar) {
-                    print("inside thiss booltocheckifimilar")
+                    
                     let person = ContactArray(context: PersistenceService.context)
                     person.firstName = contact.givenName
                     if (contact.familyName != nil) {
@@ -362,14 +369,42 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
         
     }
     
+    @IBOutlet weak var addContacts: RoundButton!
     
+    @IBOutlet weak var hiveLabel: UILabel!
     
+     @IBOutlet weak var hiveView: UIView!
+    
+    @IBOutlet var mainView: UIView!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-//        
+        let screenSize: CGRect = UIScreen.main.bounds
+        
+        addContacts.frame = CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height * 0.085
+        )
+        if UIDevice.current.iPhoneX {
+            hiveLabel.translatesAutoresizingMaskIntoConstraints = false
+            
+            let verticalConstraint = NSLayoutConstraint(item: hiveLabel, attribute: .top, relatedBy: .greaterThanOrEqual, toItem: mainView, attribute: .top, multiplier: 1, constant: 35)
+            hiveView.frame = CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height * 0.08)
+            contactTableView.frame = CGRect(x: 0, y: screenSize.height*0.08, width: screenSize.width, height: screenSize.height)
+            NSLayoutConstraint.activate([verticalConstraint])
+            print("This device is a iPhoneX")
+        
+        } else {
+        //hiveView.widthAnchor.constraint(equalTo: mainView.widthAnchor, multiplier: 1.0)
+         let verticalConstraint = NSLayoutConstraint(item: hiveLabel, attribute: .top, relatedBy: .greaterThanOrEqual, toItem: mainView, attribute: .top, multiplier: 1, constant: 20)
+        hiveView.frame = CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height * 0.075)
+            contactTableView.frame = CGRect(x: 0, y: screenSize.height*0.07, width: screenSize.width, height: screenSize.height)
+        NSLayoutConstraint.activate([verticalConstraint])
+            print("This device is not an iPhoneX")
+        }
+        
+        
+        contactTableView.rowHeight = 125
         let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "Icon-180.png")!,iconInitialSize: CGSize(width: 120, height: 120), backgroundColor: UIColor(red: 255, green: 255, blue: 255, alpha: 1))
         
                 //Adds the revealing splash view as a sub view
@@ -398,7 +433,7 @@ class SecondOpeningScreen: UIViewController, SwiftMultiSelectDelegate, UITableVi
         PersistenceService.saveContext()
         contactTableView.dataSource = self
         contactTableView.delegate = self
-        contactTableView.rowHeight = (UIScreen.main.bounds.height)/6
+       
 
         
         //Register delegate
